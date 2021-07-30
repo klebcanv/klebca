@@ -1,0 +1,187 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .container{
+            background-color: rgb(0, 4, 43);
+            margin-top: 200px;
+        }
+      #name{
+        color:aqua
+      }
+    </style>
+  </head>
+  <body >
+    <div class="container jumbotron mm1">
+      <h1 style="font-size: 4em;">Sign Up Form</h1>
+      <p>Please select the user type you want to sign up</p>
+
+      <div class="container jumbotron dd1 col-md-3">
+        <h1>Student Signup</h1>
+        <a id="name" href="{% url 'student_signup' %}" class="btn btn-student btn-lg" role="button">
+        <img style="margin-left:-60px; width:250px ; height:350px; " src="https://s.clipartkey.com/mpngs/s/201-2010615_student-png-pollpath-student-on-computer-png.png" alt="">
+        </a>
+      </div>
+
+      <div class="container jumbotron dd2 col-md-3">
+        <h1>Techers Signup</h1>
+        <a id="name" href="{% url 'teacher_signup' %}" class="btn btn-teacher btn-lg" role="button">
+        <img style="margin-left:-60px; width:250px ; height:350px; " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN0wrSl1LKSemSZL7gdWu315c-6BAJUAScUw&usqp=CAU" alt="">
+        </a>
+      </div>
+
+      <div class="container jumbotron dd3 col-md-3">
+        <h1>Library Signup</h1>
+        <a id="name" href="{% url 'library_signup' %}" class="btn btn-teacher btn-lg" role="button">
+        <img style="margin-left:-60px; width:250px ; height:350px; " src="https://www.clipartkey.com/mpngs/m/132-1323044_library-clipart-media-center-librarian-png.png" alt="">
+        </a>
+      </div>
+
+      <div class="container jumbotron dd4 col-md-3">
+      <h1>Hod Signup</h1>
+      <a id="name" href="{% url 'hod_signup' %}" role="button">
+      <img style="margin-left:-45px; width:250px ; height:350px; margin-top: 8px;" src="https://clipartstation.com/wp-content/uploads/2017/11/administration-clipart.jpg" alt="">
+      </a>
+      </div>
+
+    </div>
+  </body>
+
+
+        <style>
+
+          h1{
+            color: cyan;
+            font-size: 20px;
+            margin-top: -50px;
+            text-align: center;
+          }
+          p{
+            color: cyan;
+            font-size: 15px;
+            text-align: center;
+          }
+          a{
+            color: cyan;
+            font-size: 25px;
+            text-align: center;
+          }
+
+          .dd1{
+            float: left;
+            position: static;
+            margin-top:5px;
+            width: 550px;
+            height: 400px;
+            padding: 50px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+          }
+          .dd2{
+            float: left;
+            position: static;
+            margin-top:5px;
+            width: 550px;
+            height: 400px;
+            padding: 50px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+          }
+          .dd3{
+            float: right;
+            position: static;
+            margin-top:5px;
+            width: 550px;
+            height: 400px;
+            padding: 50px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+          }
+          .dd4{
+            float: right;
+            position: static;
+            margin-top: 5px;
+            width: 550px;
+            height: 400px;
+            padding: 50px;
+            border: 1px solid green;
+            box-sizing: border-box;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+          }
+        
+            .dd1:hover{
+              transform: scale(1.4);
+              transition: all 0.7s ease;
+        
+              width: 800px;
+              height: 400px;
+              /* margin-left: 220px; */
+              -webkit-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238, 0.3);
+              -moz-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238);
+              box-shadow: -1px 0px 5px 5px rgba(13, 223, 238,0.3);
+        
+        
+            }
+            .dd2:hover{
+              transform: scale(1.4);
+              transition: all 0.7s ease;
+              width: 800px;
+              height: 400px;
+              -webkit-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238, 0.3);
+              -moz-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238);
+              box-shadow: -1px 0px 5px 5px rgba(13, 223, 238,0.3);
+            }
+            .dd3:hover{
+              transform: scale(1.4);
+              transition: all 0.7s ease;
+              width: 800px;
+              height: 400px;
+              -webkit-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238, 0.3);
+              -moz-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238);
+              box-shadow: -1px 0px 5px 5px rgba(13, 223, 238,0.3);
+            }
+            .dd4:hover{
+              transform: scale(1.4);
+              transition: all 0.7s ease;
+              width: 800px;
+              height: 400px;
+              -webkit-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238, 0.3);
+              -moz-box-shadow: -1px 0px 5px 5px rgba(13, 223, 238);
+              box-shadow: -1px 0px 5px 5px rgba(13, 223, 238,0.3);
+            }
+            .aa1{
+              /* margin-top: 1000px; */
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+            }
+            .mm1{
+              margin-top: 90px;
+              height: 625px;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+            }
+        
+        
+        </style>
+</html>
+{% endblock %}

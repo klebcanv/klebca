@@ -1,0 +1,68 @@
+{% extends "performance.html" %}
+{% block per_form %}
+
+{% if user.is_authenticated %}
+<style>
+  form p{
+        color: red;
+        text-align: center;
+        margin-top: -20px;
+    }
+  input,select{
+        width: 100%;
+        background: transparent;
+        margin: 6px 0;
+        height: 38px;
+        border-radius: 5px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        outline: none;
+        /* text-align: center; */
+        color: aqua;
+  }
+  button{
+    align-items: center;
+    width: 100%;
+  }
+option{
+  color:aqua;
+  background-color: #393a40;
+}
+</style>
+<div>
+  <form method="POST" class="post-form" enctype="multipart/form-data">  
+    {% csrf_token %}
+    <p><label for="id_stu_name">Stu name:</label> <select name="stu_name" id="id_stu_name">
+      <option value="{{name.id}}" selected>{{name}}</option>
+
+</select></p>
+<p><label for="id_subject">Subject:</label> <input type="text" name="subject" maxlength="100" required id="id_subject"></p>
+<p><label for="id_teacher">Teacher:</label> <input type="text" name="teacher" maxlength="100" required id="id_teacher" readonly value="{{user.username}}"></p>
+<p><label for="id_exam_name">Exam name:</label> <select name="exam_name" required id="id_exam_name">
+<option value="1st internal" selected>1st internal</option>
+<option value="2nd internal">2nd internal</option>
+<option value="3rd internal">3rd internal</option>
+<option value="preparatory">preparatory</option>
+<option value="other">other(please type bellow the exam name)</option>
+</select>
+</p>
+<p><label for="id_other_exam">Other exam:</label> <input type="text" name="other_exam" maxlength="100" required id="id_other_exam"></p>
+<p><label for="id_total_m">Total m:</label> <input type="text" name="total_m" maxlength="100" required id="id_total_m"></p>
+<p><label for="id_obtained_m">Obtained m:</label> <input type="text" name="obtained_m" maxlength="100" required id="id_obtained_m"></p>
+<p><label for="id_remark">Remark:</label> <input type="text" name="remark" maxlength="100" required id="id_remark"></p>
+<p><label for="id_posted_d">Posted d:</label> <input type="text" name="posted_d" maxlength="100" id="date" required id="id_posted_d" readonly value="javascript:document.write(Date()+'.')"/></p>  
+    <button type="submit" onclick="popup()" class="save btn btn-success">Save</button>  
+  </form>
+</div>
+
+<script type="text/javascript">
+    function popup()
+          {
+          alert("Student's performance updated successfully!");
+          timer: 8000;
+          }
+    document.getElementById('date').value = Date();
+  </script>
+
+{% endif %}
+{% endblock %}

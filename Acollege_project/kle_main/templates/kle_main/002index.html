@@ -1,0 +1,642 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- style for galary -->
+    <style>
+              * {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, sans-serif;
+}
+.mySlides {
+  display:block;
+}
+.slideshow-container img {
+  vertical-align:middle;
+  height: 590px;
+}
+/* Slideshow container */
+.slideshow-container {
+  max-width: 2000px;
+  /* position: relative; */
+  margin: auto;
+
+}
+/* Caption text */
+.text {
+  color: aqua;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: aqua;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color:aqua;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active {
+  background-color: #717171;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 3.5s;
+  animation-name: fade;
+  animation-duration: 3.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 10}
+  to {opacity: 10}
+}
+@keyframes fade {
+  from {opacity: 10}
+  to {opacity: 10}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .text {font-size: 11px}
+}
+     </style>
+     <meta charset="utf-8">
+    <title>kle bca college</title>
+    <!-- bootstrap 01 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- bootstrap 02 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <!--connecting css  -->
+    <link rel="stylesheet" href="{% static 'css\index\index.css' %}">
+    <!-- connecting js -->
+     <script>
+       // ************************************companies*****************************************
+          filterSelection("all") // Execute the function and show all columns
+          function filterSelection(c) {
+            var x, i;
+            x = document.getElementsByClassName("column");
+            if (c == "all") c = "";
+            // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+            for (i = 0; i < x.length; i++) {
+              w3RemoveClass(x[i], "show");
+              if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            }
+          }
+
+          // Show filtered elements
+          function w3AddClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+              }
+            }
+          }
+
+          // Hide elements that are not selected
+          function w3RemoveClass(element, name) {
+            var i, arr1, arr2;
+            arr1 = element.className.split(" ");
+            arr2 = name.split(" ");
+            for (i = 0; i < arr2.length; i++) {
+              while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+              }
+            }
+            element.className = arr1.join(" ");
+          }
+
+          // Add active class to the current button (highlight it)
+          var btnContainer = document.getElementById("myBtnContainer");
+          var btns = btnContainer.getElementsByClassName("btn");
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function(){
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+            });
+          }
+     </script>
+  </head>
+  <!-- <body style="background: url(https://p4.wallpaperbetter.com/wallpaper/114/760/992/abstract-hexagon-digital-art-pattern-wallpaper-preview.jpg);"> -->
+  <body>
+    <!-- ************************************************************************logo and name*************************************************************************** -->
+          <div id="logoname">
+                <div class="jumbotron"style="background-color:rgb(0, 4, 43);padding-bottom:10px;" >
+                  <div class="logo ">
+                    <div class="row">
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                      <img id="logo1" style="float: none;" src="https://www.gklawcollege.com/wp-content/uploads/2020/03/kle-logo.png"  alt="logo" width="250" height="250" style="border: 0;">
+                      </div>
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 logo_text" style="width:400px;">
+                        <p>KLE SOCIETY'S<p>
+                      <p>S.NIJALINGAPPA COLLEGE(BCA Department)</p>
+                      <p>#1040, II Block, Rajajinagar,Bengaluru-560010</p>
+                      <p>Phone: 080 23526055 / 23325020</p>
+                      <p>Email id: klebcaclg22060@gmail.org</p>
+                      </div> 
+                      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <img id="logo2" style="float: none;" src="https://www.gklawcollege.com/wp-content/uploads/2020/03/kle-logo.png"  alt="logo" width="250" height="250" style="border: 0;">
+                      </div>
+                  </div>
+                </div>
+              </div>
+         </div>
+
+    <!-- ***************************************************************************offers******************************************************************************* -->
+    <div id="offerslide"style="margin-top:-50px;margin-bottom:5px;">
+      <div class="header-marquee">
+            <div class="row offerslide">
+              <div class="col-sm">
+                <marquee style="margin-top:-25px;"scrollamount="8" direction="left" loop="infinite" width="1500" onmouseover="this.stop();" onmouseout="this.start();">
+                Admissions are still going on bca 1st year for the session 2020-21 ,student can avail the offer of 50% less tution fee if scored more than 80% in +2
+                </marquee>
+              </div>
+            </div>
+              </div>
+    </div>
+
+
+
+<!-- *********************************************************galary (check grid in bootstrap for more info)**********************************************************-->
+    <div id="galary" style="margin-top:-16px;margin-left:-25px;">
+                <div class="slideshow-container row">
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">1 / 6</div>
+                <img src="{% static 'PHOTOES\kle1.png' %}" style="width:101.8%">
+                <div class="text">Our college Campus</div>
+                </div>
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">2 / 6</div>
+                <img src="{% static 'PHOTOES\kle2.png' %}" style="width:101.8%">
+                <div class="text">Bca Building</div>
+                </div>
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">3 / 6</div>
+                <img src="{% static 'PHOTOES\kle3.png' %}" style="width:101.8%">
+                <div class="text">Studens Scored firs in all india tech logis </div>
+                </div>
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">4 / 6</div>
+                <img src="{% static 'PHOTOES\kle4.png' %}" style="width:101.8%">
+                <div class="text">College Computer Lab</div>
+                </div>
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">5 / 6</div>
+                <img src="{% static 'PHOTOES\kle5.png' %}" style="width:101.8%">
+                <div class="text">Students in libaray</div>
+                </div>
+
+                <div class="mySlides fade col-sm">
+                <div class="numbertext">6 / 6</div>
+                <img src="{%static 'PHOTOES\kle6.png' %}" style="width:101.8%">
+                <div class="text">Our faculties</div>
+                </div>
+
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                </div>
+                <div id="newsslide-right*">
+                          <div class="news-contentr">
+                            <div class="news-headr">upcomming events</div>
+                               <marquee scrollamount="2" direction="up" loop="true" height="520" onmouseover="this.stop();" onmouseout="this.start();">
+                                 <div class="photo_ka_slide">
+                                   <h1 style="font-size:20px;background-color:rgb(0, 4, 43);text-align:center;">upcomming events</h1>
+                                   <img src="{% static 'PHOTOES\newgif.gif' %}" height="25" width="25">
+                                   <span> 1. Ankit kumar of bca fist year secured first position in code the block organized by nagarbhavi college,Bengaluru.<br><br>
+                                   2. Paras agarwal got 2nd prize in poster contest on 4th November 2020 organized by lions club, Bengaluru &amp; elected for state level.<br><br>
+                                   3. Students of kle bca college, Rajajinagar got first prize in firebase competition held at open mind birla institute, Bengaluru on 18 th November 2020 among 8 college.<br><br>
+                                   4. kle college, Rajajinagar students got gold in web development competition held at kerla on 18th November.<br><br>
+                                         5. On 13 September 2018 there was the seminar from ceo of google for students of bca first and second years &amp; 12 students on the topic cyber security has been selected from our institutions<br><br>
+                                         6.  Talent hunt Search contest 2017-18 has been conducted by ERAJANAND EDUCATION SOCIETY , BHOPAL  result is as follows :
+                                           <p><b>First position :</b><br>
+                                           1. AKSHITA BARNWAL -bca -3st year<br>
+                                           2. AAMIR HASAN  -bca -2st year<br>
+                                           3. GAGANDEEP SINGH -bca -1st year<br>
+                                           4. ROSHAN RAJ -bca -3st year</p>
+
+                                           <p><b>Second position :</b><br>
+                                           1.NITYAM KUMAR -bca -1st year<br>
+                                           2. AYUSH KUMAR bca -2st year<br>
+                                           3. AYUSH ABHINAV  -bca -2st year<br>
+                                           4. KHUSHI -bca -2st year</p>
+
+                                           <p><b>Third position :</b><br>
+                                           1. AYUSH ANAND -bca -1st year<br>
+                                           2. SAANVI CHHAPERIA -bca -1st year<br>
+                                           3. GYANDEEP BHARTI -bca -1st year<br>
+                                           4. TRISHA RAGINI-bca -2st year</p>
+
+                                         7. annual fest was celebrated in the college , Sr. Vijaya (general project headd of infosis) was the chief guest.<br><br>
+
+                                         8. code competition was organized by kle bca department on 21 dec 2019 more than 6 collges from different states has participated.<br><br>
+
+
+                                         9. acadamic year of college was celebrated and my students have participated in different competetions and scored well as follows
+                                         <p> <b> Debate:-(bca -1st year)</b><br>
+                                           1.Akriti Prabha- 1st bca 2nd year</p>
+                                             <b> Quiz:-(bca bca -3st year)</b><br>
+                                              1. Nishant Ahmadi-2nd  from kle seshadipuram college Bengaluru<br>
+                                              2. Shania Ahmad-2nd from kle seshaddipuram college Bengaluru<br><br>
+                                             <b> Creative writing:-(seniors)</b><br>
+                                                 1. Akriti Aprajita-2nd from kle s.Nijalingappa collge Rajajinagar<br><br>
+                                                 <b>Declamation:-(seniors)</b><br>
+                                                 1. Kauseen Warsi-2nd from kle s.Nijalingappa college Rajajinagar<br><br>
+                                                 <b>talent hunt:-</b><br>
+                                                  1. Shatakshi-2nd(seniors from bca christ university Bengaluru)<br>
+                                                  2. Sanskriti-3rd(juniors from bca chrish university Bengaluru)</span>
+                                           <div class="news-separator"></div>
+                                           <img src="{% static 'PHOTOES\newgif.gif' %}" height="25" width="25">
+                                           <span> Parent awareness programme  regarding measles &amp; Rubella  held on 24/07/2018 in College campus</span>
+                                           <div class="news-separator"></div>
+                                           <img src="{% static 'PHOTOES\newgif.gif' %}" height="25" width="25">
+                                           <span> Vaccine of Measles &amp; Rubella has been given to the school students on 27 July and 30 July 2018 in the College campus</span>
+                                           <div class="news-separator"></div>
+                                 </div>
+                               </marquee>
+                           </div>
+                          <div class="news-footr"></div>
+                </div>
+
+    </div>
+    <!-- **********************************************************************our hod's mesage************************************************************************** -->
+          <div id="hod" class="jumbotron container" style="background-color:rgba(0,217,255,0.9)">
+            <h1 style="text-align:center;color:white;"><u><b>K.L.E. Society’s S. Nijalingappa College</b></u></h1>
+            <p style="font-size: 20px;color:white;">K.L.E. Society’s S. Nijalingappa College, established in the year 1963, is one of the premier institutions of K.L.E Society. It made a humble beginning in a rented building on Mahatma Gandhi Road, near Mayo Hall, as a Science College. It was shifted to the present premises in 1966. The founder Principal Dr.V.G. Nelivigi laid a firm foundation for the college and was responsible for development of the college, by its inclusion under 2(f) and 12(B) of UGC.</p>
+                  <p></p>
+                  <p></p>
+                    <div class="row">
+                     <div class="col-md-6" style="color:white;font-size: 19px;">  
+                        <p>Co-ordinater’s Message: Welcome to KLE Society’s S. Nijalingappa College affiliated to Bengaluru Central University, Bengaluru. It is the prestigious institute of Collegiate Education established in 1963 by globally reputed KLE Society, Belagavi, which has celebrated its centenary during the year 2015-16. KLE Society was founded by seven selfless dedicated teachers who are known as ‘Saparishis’. Today the society catering the education in all the areas of the school, pre-university colleges, collegiate education, law, health care & sciences, management studies, agriculture, and technical education in Karnataka, Maharashtra, Goa, and Delhi. Under the leadership of Dr. Prabhakar B. Kore, MP the Society has seen exponential growth and has achieved the distinction of having been conferred the status of “deemed-to-be university” in the areas of medical education and technological education.</p>
+                     </div>
+                     <div class="col-md-6">
+                           <img style="width:480px; height:420px;" src="{% static 'PHOTOES\PARVATI.JPG' %}" alt="#">
+                      </div>
+                  </div>
+
+          </div>
+
+    <!-- ***********************************************************************our Prefarances************************************************************************** -->
+          <div id="Prefarances" >
+                    <div id="hiw" class="hiw_section layout_padding" style="background-color:rgba(13, 223, 238, 0.3);border:3px solid rgb(13, 223, 238);">
+                          <div class="row">
+                             <div class="col-md-12">
+                                <h3 class="white_font" style="font-size:40px; text-align: center;"><u>Our Prefarances</u></h3>
+                              </div>
+                                <div class="col-md-12">
+                                <p class="white_font" style="text-align: center;font-size:20px;">we provide students with quality education and good environment
+                                  we also provide students a very good platform to work ,practice and build once speciality in concerned field,
+                                  we also encourage student to practice speaking in english,students are also encourage to perform once skill in
+                                other colleges by participaing in events such as it fest, hacking fest,gaming fest,coding fest,networking fest etc.
+                                 in other colleges of Bengaluru.</p>
+                             </div>
+                          </div>
+                          <div class=" row">
+                                  <div class="containera col-sl">
+                                   <img src="{% static 'photoes/Prefarancecs1.jpg' %}" alt="Notebook">
+                                   <div class="content">
+                                     <h1>computer projects</h1>
+                                     <p>students are given atleas two to three computer projects once in month</p>
+                                   </div>
+                                  </div>
+                                  <div class="containera col-sl">
+                                   <img src="{% static 'photoes/Prefarancecs2.jpg' %}" alt="Notebook">
+                                   <div class="content">
+                                     <h1>assignments</h1>
+                                     <p>students are given assignments to practice the concerned subjects</p>
+                                   </div>
+                                  </div>
+                                  <div class="containera col-sl">
+                                   <img src="{% static 'photoes/Prefarancecs3.jpg' %}" alt="Notebook">
+                                   <div class="content">
+                                     <h1>conference</h1>
+                                     <p>we organize atleas two conference once in a month to avoid stage fear and to make student frank</p>
+                                   </div>
+                                  </div>
+                          </div>
+                    </div>
+          </div>
+
+    <!-- ***********************************************************************Department_highlights******************************************************************** -->
+          <div id="Department_highlights" style="background-color:rgba(0,217,255,0.9);margin-top:-30px;" class="container">
+                      <h2 style="color:white; text-align:center; margin-top:30px;"><b><u>Department highlights</b></u></h2>
+                      <div id="myBtnContainer" class="">
+                      <button class="btnc" onclick="filterSelection('nature')">Courses</button>
+                      <button class="btnc" onclick="filterSelection('cars')">Companies</button>
+                      <button class="btnc" onclick="filterSelection('people')">Hardware</button> 
+                      <button class="btnc" onclick="filterSelection('all')"> Show all </button>
+                      </div>
+
+                      <!-- Portfolio Gallery Grid -->
+                      <div class="row">
+                      <div class="column nature">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\icourse01.png' %}" alt="Mountains" style="border-radius:10px;width:100%">
+                      <h4 style="color:white">NPTEL</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <div class="column nature">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\icourse02.png' %}" alt="Lights" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">SALESFORCE</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <div class="column nature">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\icourse03.png' %}" alt="Nature" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">MICROSOFT</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+
+                      <div class="column cars ">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\company01.png' %}" alt="Car" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">IBM</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume.</p>
+                      </div>
+                      </div>
+                      <div class="column cars">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\company02.png' %}" alt="Car" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">INFOSYS</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <div class="column cars">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\company03.png' %}" alt="Car" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">GOOGLE</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+
+                      <div class="column people">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\work01.png' %}" alt="People" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">HARDWARE</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <div class="column people">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\work02.png' %}" alt="People" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">NETWORKING</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <div class="column people">
+                      <div class="content">
+                      <img src="{% static 'PHOTOES\work03.png' %}" alt="People" style="border-radius:10px;width:100%">
+                      <h4 style="color:white;">DIGITAL ELECTRONICS</h4>
+                      <p style="color:white;">we encourange students to participate in internationl course certification to increase their waitage of resume</p>
+                      </div>
+                      </div>
+                      <!-- END GRID -->
+                      </div>
+          </div>
+
+    <!-- ************************************************************************our services**************************************************************************** -->
+          <div id="Our_Services">
+            <div id="service" class="hiw_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-7">
+                        <h3 style="color:rgba(0,217,255,1);">OUR SERVICES</h3>
+                        <p style="color:rgba(0,217,255,1);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                     </div>
+                     <div class="col-md-5">
+                     </div>
+                  </div>
+                  <div class="row" >
+                     <div class="col-md-8 service_blog">
+                        <img class="margin_top_30 img-responsible" src="{% static 'photoes/service1.jpg' %}" alt="#" style="width:1000px;height:400px;margin-top:-40px;">
+                        <h3 class="blog_head">A visit to infosys</h3>
+                     </div>
+                     <div class="col-md-4 service_blog">
+                        <img class="margin_top_30 img-responsible" src="{% static 'photoes/service2.jpg' %}" alt="#"style="width:500px;height:400px;margin-top:-40px;">
+                        <h3 class="blog_head">Travelling</h3>
+                     </div>
+                     <div class="col-md-4 service_blog">
+                        <img class="margin_top_30 img-responsible" src="{% static 'photoes/service3.jpg' %}" alt="#" style="width:500px;height:400px;">
+                        <h3 class="blog_head">Band  </h3>
+                     </div>
+                     <div class="col-md-4 service_blog">
+                        <img class="margin_top_30 img-responsible" src="{% static 'photoes/service4.jpg' %}" alt="#" style="width:500px;height:400px;">
+                        <h3 class="blog_head">weekly activity</h3>
+                     </div>
+                     <div class="col-md-4 service_blog">
+                        <img class="margin_top_30 img-responsible" src="{% static 'photoes/service5.jpg' %}" alt="#" style="width:500px;height:400px;">
+                        <h3 class="blog_head">a visit to ibm</h3>
+                     </div>
+                  </div>
+               </div>
+            </div>
+           </div>
+
+    <!--**********************************************************************register here*****************************************************************************  -->
+            <div id="Apply_now" >
+                      <div id="hiw" class="hiw_section layout_padding" style="background:url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77701509823.jpg);">
+
+                            <div class=" row">
+                                    <div class="apply_content col-sl">
+                                     <img  style="width:700px;height:600px;"src="{% static 'PHOTOES/pngguru.png' %}" alt="Notebook">
+                                    </div>
+                                    <div class="apply_content col-sl">
+                                      <div class="contact-form "style="margin-top:50px;">
+                                             <h3><u>Register Now</u></h3>
+                                         <form>
+                                            <input type="text" placeholder="First Name" />
+                                            <input type="text" placeholder="Last Name" />
+                                            <input type="Email" placeholder="Email" />
+                                            <input type="text" placeholder="Phone number">
+                                            <!-- <a href="content\registration.html" type="submit">Apply now</a> -->
+                                            <a href="{% url 'kle_main:student_apply' %}"><p><button type="button" name="button">Apply now</button></p></a>
+                                         </form>
+                                      </div>
+                                    </div>
+
+                            </div>
+                      </div>
+            </div>
+
+   <!-- *********************************************************************studentreview******************************************************************************* -->
+          <div id="Message_for_Students">
+            <div id="wcs" class="hiw_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12 text_align_center">
+                        <h3 style="color:rgba(0,217,255,1);">Message for Students</h3>
+                        <p style="color:rgba(0,217,255,1);">our faculties are very much friendly and convenient to the students, student can expect a good mentor and a good friendly faculty from the institute</p>
+                     </div>
+                     <div class="col-md-5">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-11">
+                        <div class="full testimonial_blog">
+                           <img src="{% static 'PHOTOES\teacher1.png' %}" alt="" style="height:200px; width:200px; float:left; margin-bottom:50px;">
+                           <p>Mr. Yetish dadu</p>
+                           <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-11">
+                        <div class="full testimonial_blog">
+                           <img src="{% static 'PHOTOES\teacher2.png' %}" alt="" style="height:200px; width:200px; float:left; margin-bottom:50px;">
+                           <p>Mrs Arpitha </p>
+                           <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-11">
+                        <div class="full testimonial_blog">
+                           <img src="{% static 'PHOTOES\teacher3.png' %}" alt="" style="height:200px; width:200px; float:left; margin-bottom:50px;">
+                           <p>Mr pavan Ac</p>
+                           <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscureContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+  <!-- ***********************************************************************second bottom****************************************************************************** -->
+          <div id="student_feedback"style="margin-bottom:-20px;">
+            <div class="subcribe">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-4 col-sm-6">
+                        <h3>Student feedback</h3>
+                        <p>Students of our instituion are free to send us <br>their valuable feedback so that we may<br> improve ourself in a better way</p>
+                     </div>
+                     <div class="col-md-8 col-sm-6">
+                        <form>
+                           <textarea name="message" rows="10" cols="30"  >please enter your feedback here </textarea>
+                           <a href="#" type="submit">Submit</a>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+  <!-- *************************************************************************most bottom****************************************************************************** -->
+          <div id="mostbottom">
+            <div class="contain" style="background-color: rgb(0, 4, 43);margin-bottom:-20px;">
+               <div class="row">
+                  <div class="col-lg-3 col-md-6 col-12">
+                     <div class="footer_blog_section">
+                        <img class="bot_img" src="https://pbs.twimg.com/media/C9DBjqpXgAM1zKu.jpg" alt="#" />
+                        <p style="margin-top: 5px;color:rgba(0,217,255,1);"></p>
+                     </div>
+                  </div>
+                  <div class="col-lg-2 col-md-6 col-12">
+                     <div class="item">
+                        <h4 class="text-uppercase" style="color:rgba(0,217,255,1);">Navigation</h4>
+                        <ul>
+                           <li><a href="#">Home</a></li>
+                           <li><a href="#">About</a></li>
+                           <li><a href="#">Location</a></li>
+                           <li><a href="#">Service</a></li>
+                           <li><a href="#">Features</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 col-md-6 col-12">
+                     <div class="item">
+                        <h4 class="text-uppercase"style="color:rgba(0,217,255,1);">Contact Info</h4>
+                        <p><strong>College Office Address:</strong></p>
+                        <p>#1040, II Block, Rajajinagar,Bengaluru-560010</p>
+                        <p><strong>Customer Service:</strong></p>
+                        <p>Phone: 080 23526055 / 23325020</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-12">
+                     <div class="item">
+                        <h4 class="text-uppercase" style="color:rgba(0,217,255,1);">Discover</h4>
+                        <ul>
+                           <li><a href="#">Help</a></li>
+                           <li><a href="#">How It Works</a></li>
+                           <li><a href="#">Subscribe</a></li>
+                           <li><a href="#">Contact Us</a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+          </div>
+
+
+
+
+    <!-- js script for galarys -->
+    <script>
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+            // alert("*********************************Please Note****************************** This website is not the official website of kle s.nijallingapapa college. This is only a project model created by student of bca department.  ****************************Website view Note**************************** To Experience this website properly please open it in laptop or desktop or if opening in phone then please view in desktop mode in chrome");
+          
+          
+
+    </script>
+
+  </body>
+</html>
+{% endblock %}

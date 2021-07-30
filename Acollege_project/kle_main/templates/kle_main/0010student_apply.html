@@ -1,0 +1,1445 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      /* body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .container{
+            background-color: #393a40;
+            margin-top: 100px;
+        } */
+                            /* button submit payment */
+                          #pay:hover{
+                              background-color:rgba(0,224,240);
+                              transform: scale(1.2);
+                              -webkit-box-shadow: -1px 0px 25px 10px rgba(0, 217,255,1);
+                              -moz-box-shadow: -1px 0px 25px 10px rgba(0, 217, 255,1);
+                              box-shadow: -1px 0px 25px 10px rgba(0, 217, 255,1);
+                            }
+                            /* cssmatic.com/box-shadow */
+                            /* #pay{
+                              -webkit-box-shadow: -1px 5px 22px 14px rgba(0, 217, 255,1);
+                              -moz-box-shadow: -1px 5px 22px 14px rgba(0, 217, 255,1);
+                              box-shadow: -1px 5px 22px 14px rgba(0, 217, 255,1);
+                            } */
+                            /* Style the submit button */
+                            input[type=submit] {
+                              background-color: rgba(0, 217, 255,1);
+                              padding: 12px 20px;
+                              border: none;
+                              border-radius: 4px;
+                              cursor: pointer;
+                              /* float: right; */
+                              color: white;
+                            }
+                                  /* top logo */
+                                  #logo2{
+                                    float: right;
+                                    margin-top: 20px;
+                                    margin-right: 170px;
+                                  }
+                                  #logo1{
+                                  float: left;
+                                  border-color: red;
+                                  margin-left: 0px;
+                                  }
+                                  /* for all forms  */
+                                  #form_view{
+                                    width: 100%;
+                                    margin-top: 20px;
+                                    background: transparent;
+                                    border: none;
+                                    border-bottom: 2px solid #4fcaff;
+                                    outline: none;
+                                    font-size: 18px;
+                                    color: #4fcaff;
+                                    padding: 5px 0;
+                                    font-family: sans-serif;
+                                  }
+                                  #form_view_pay{
+                                    width: 100%;
+                                    margin-top: 20px;
+                                    background: transparent;
+                                    border: none;
+                                    border-bottom: 2px solid #fff;
+                                    outline: none;
+                                    font-size: 18px;
+                                    color: #fff;
+                                    padding: 5px 0;
+                                    font-family: sans-serif;
+                                  }
+                                  .namehai::placeholder{
+                                    color:#fff;
+                                  }
+                                  ::placeholder{
+                                    color: #4fcaff;
+                                  }
+        
+                                    /* Set height of body and the document to 100% to enable "full page tabs" */
+                              body, html {
+                              height: 100%;
+                              margin: 0;
+                              font-family: Arial;
+                              background: url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+                              }
+        
+                              /* Style tab links */
+                              .tablink {
+                              background-color: #555;
+                              color: white;
+                              float: left;
+                              border: none;
+                              outline: none;
+                              cursor: pointer;
+                              padding: 14px 16px;
+                              font-size: 17px;
+                              width: 25%;
+                              }
+        
+                              .tablink:hover {
+                              background-color:rgba(0,217,255);
+                              }
+        
+                              /* Style the tab content (and add height:100% for full page content) */
+                              .tabcontent {
+                              /* color: black;0 */
+                              color:rgba(0,217,255);
+                              display: none;
+                              padding: 100px 20px;
+                              height: 100%;
+                              }
+        
+                              #personal_info {background-color: white;}
+                              #qualification_info {background-color: white;}
+                              #document_upload {background-color: white;}
+                              /* #payment {background-color: white;} */
+                              /*--------------------------------------------------personal_info students details------------------------------------------------*/
+        
+                              /* Style inputs, select elements and textareas */
+                              input[type=text],[type=date],[type=number],[type=email], select, textarea{
+                                width: 100%;
+                                padding: 12px;
+                                /* border: 1px solid red; */
+                                /* border-radius: 4px; */
+                                box-sizing: border-box;
+                                resize: vertical;
+                              }
+        
+                              /* Style the label to display next to the inputs */
+                              label {
+                                padding: 12px 12px 12px 0;
+                                display: inline-block;
+                              }
+        
+        
+        
+                              /* Style the container */
+                              .container {
+                                /* border-radius: 5px; */
+                                background-color: #f2f2f2;
+                                padding: 20px;
+                              }
+        
+                              /* Floating column for labels: 25% width */
+                              .col-25 {
+                                float: left;
+                                width: 25%;
+                                margin-top: 6px;
+                              }
+        
+                              /* Floating column for inputs: 75% width */
+                              .col-75 {
+                                float: left;
+                                width: 75%;
+                                margin-top: 6px;
+                              }
+        
+                              /* Clear floats after the columns */
+                              .row:after {
+                                content: "";
+                                display: table;
+                                clear: both;
+                              }
+        
+                              /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+                              @media screen and (max-width: 600px) {
+                                .col-25, .col-75, input[type=submit] {
+                                  width: 100%;
+                                  margin-top: 0;
+                                }
+                              }
+                                /*****************************************************document_upload******************************************************************** */
+                              article, aside, figure, footer, header, hgroup,
+                              menu, nav, section { display: block; }
+        
+                                 /* ******************************************************payment****************************************************** */
+                                     .row {
+                                      display: -ms-flexbox;
+                                      display: flex;
+                                      -ms-flex-wrap: wrap;
+                                      flex-wrap: wrap;
+                                      margin: 0 -16px;
+                                    }
+        
+                                    .col-25 {
+                                      -ms-flex: 25%;
+                                      flex: 25%;
+                                    }
+        
+                                    .col-50 {
+                                      -ms-flex: 50%;
+                                      flex: 50%;
+                                    }
+        
+                                    .col-75 {
+                                      -ms-flex: 75%;
+                                      flex: 75%;
+                                    }
+        
+                                    .col-25,
+                                    .col-50,
+                                    .col-75 {
+                                      padding: 0 16px;
+                                    }
+        
+                                    .container {
+                                      background-color: #f2f2f2;
+                                      padding: 5px 20px 15px 20px;
+                                      border: 1px solid lightgrey;
+                                      border-radius: 3px;
+                                    }
+        
+                                    .pay_college_fees input[type=text] {
+                                      width: 100%;
+                                      margin-bottom: 20px;
+                                      padding: 12px;
+                                      border: 1px solid #ccc;
+                                      border-radius: 3px;
+                                    }
+        
+                                    .pay_college_fees label {
+                                      margin-bottom: 10px;
+                                      display: block;
+                                    }
+        
+                                    .icon-container {
+                                      margin-bottom: 20px;
+                                      padding: 7px 0;
+                                      font-size: 24px;
+                                    }
+        
+                                    /* .btn {
+                                      background-color: #4CAF50;
+                                      color: white;
+                                      padding: 12px;
+                                      margin: 10px 0;
+                                      border: none;
+                                      width: 100%;
+                                      border-radius: 3px;
+                                      cursor: pointer;
+                                      font-size: 17px;
+                                    }
+        
+                                    .btn:hover {
+                                      background-color: #45a049;
+                                    } */
+        
+                                    span.price {
+                                      float: right;
+                                      color: grey;
+                                    }
+        
+                                    /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
+                                    @media (max-width: 800px) {
+                                      .row {
+                                        flex-direction: column-reverse;
+                                      }
+                                      .col-25 {
+                                        margin-bottom: 20px;
+                                      }
+                                    }
+
+    </style>
+    <script>
+      function msg(){
+        alert("pelase note this page is still uder development sorry for inconvinience")
+      }
+    </script>
+  </head> 
+  <body onload="msg()">
+    <div class="containera">
+            <!-- <div style="height:300px;background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);"class="regis_head jumbotron">
+              <img id="logo1" src="https://www.gklawcollege.com/wp-content/uploads/2020/03/kle-logo.png" border="0" alt="logo" width="250" height="250" style="border: 0;margin-top:-40px;">
+              <img id="logo2" src="https://pbs.twimg.com/media/C9DBjqpXgAM1zKu.jpg" border="0" alt="logo" width="210" height="210" style="border: 0;margin-top:-20px;">
+              <h1 style="text-align:center;color:rgba(0,217,255);margin-top:-20px;"><u>welcome to student register form</u></h1>
+              <h2 style="text-align:center;color:rgba(0,217,255);font-size:25px;color:white;">student can register here for online admission process<br>note:Students are requested to provide their original information
+              if the authority find any kind of error in the information or in document uploaded  the admission can be voileted</h2>
+        
+            </div> -->
+            <div style="margin-top:100px;" class="register">
+                      <button class="tablink" onclick="openPage('personal_info', this, 'rgba(0,217,255);')"id="defaultOpen">personal info</button>
+                      <button class="tablink" onclick="openPage('qualification_info', this, 'rgba(0,217,255);')" >qualification info</button>
+                      <button class="tablink" onclick="openPage('document_upload', this, 'rgba(0,217,255);')">document upload</button>
+                      <button class="tablink" onclick="openPage('payment', this, 'rgba(0,217,255);')">payment</button>
+        <!--------------------------------------------student persional_info------------------------------------ -->
+                      <div id="personal_info" style="background: url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);"class="tabcontent">
+        
+        <!--========================================students details================================================= -->
+                                    <div style="padding-left:20px;padding-right:20px;margin-top:-48px;background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);"class="student_details container">
+                                      <h1><u>Applicant's Personal Details</u></h1>
+                                      <form action="action_page.php">
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;"for="fname">First Name</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="fname" name="firstname" placeholder="Your First name..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="lname">Last Name</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="lname" name="lastname" placeholder="Your last name..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="gender">Gender</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <select id="form_view" id="gender" name="country">
+                                              <option  value="male">Male</option>
+                                              <option value="female">Female</option>
+                                              <option value="others">Others</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="bday">Date Of Birth</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="date" id="bday" name="lastname" placeholder="your date of birth ..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="phone">Phone Number</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="number" id="phone" name="lastname" placeholder="your phone number..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="emial">Email Address</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="email" id="email" name="lastname" placeholder="your email address..">
+                                          </div>
+                                        </div>
+        
+                                      </form>
+                                    </div>
+        
+        <!--=============================================student parent details-=========================================== -->
+                                    <div style="background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);margin-top:-5px;"class="parent_details container">
+                                      <h1><u>Applicant's parent`s Details</u></h1>
+                                      <form action="action_page.php">
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="fname">Father's Name</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="fname" name="firstname" placeholder="Your Father's name..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="foccu">Father's Occupation</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <select id="form_view" id="foccu" name="country">
+                                              <option value="bussiness">Bussiness</option>
+                                              <option value="servive">Servive</option>
+                                              <option value="private_job">Private Job</option>
+                                              <option value="doctor">Doctor</option>
+                                              <option value="engeener">Engeener</option>
+                                              <option value="pollatics">Pollatics</option>
+                                              <option value="self_employed">Self Employed</option>
+                                              <option value="others">Others</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;"for="fphone">Father's Phone Number</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="number" id="fphone" name="lastname" placeholder="your father's phone number..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="femial">Father's Email Address</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="femail" id="email" name="lastname" placeholder="your father's email address..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="mname">Mother's Name</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="mname" name="lastname" placeholder="Your mother's name..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="moccu">Mother's Occupation</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <select id="form_view" id="moccu" name="country">
+                                              <option value="house_wife">House Wife</option>
+                                              <option value="bussiness">Bussiness</option>
+                                              <option value="servive">Servive</option>
+                                              <option value="private_job">Private Job</option>
+                                              <option value="doctor">Doctor</option>
+                                              <option value="usa">Engeener</option>
+                                              <option value="pollatics">Pollatics</option>
+                                              <option value="self_employed">Self Employed</option>
+                                              <option value="others">Others</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="mphone">Mother's Phone Number</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="number" id="mphone" name="lastname" placeholder="your mother's phone number..">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="memial">Mother's Email Address</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="memail" id="email" name="lastname" placeholder="your mother's email address..">
+                                          </div>
+                                        </div>
+        
+                                      </form>
+                                    </div>
+        <!--=====================================================address details=======================================================-->
+                                    <div style="background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);"class="address_details container">
+                                      <h1><u>Applicant's address Details</u></h1>
+                                      <form action="action_page.php">
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="lane1">Lane One</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="lane1" name="firstname" placeholder="Your First lane example society name">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="lane2">Lane Two</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="lane2" name="lastname" placeholder="Your second lane example area name">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="lane3">Lane Three</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="lane3" name="lastname" placeholder="Your third lane example town name">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="city">City</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="text" id="city" name="lastname" placeholder="Your city">
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="state">State</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <select id="form_view" id="state" name="country">
+                                              <option value="andhra_pradesh">andhra pradesh</option>
+                                              <option value="arunachal_pradesh">arunachal pradesh</option>
+                                              <option value="assam">assam</option>
+                                              <option value="bihar">bihar</option>
+                                              <option value="chhattisgarh">chhattisgarh</option>
+                                              <option value="goa">goa</option>
+                                              <option value="gujarat">gujarat</option>
+                                              <option value="haryana">haryana</option>
+                                              <option value="himachal_pradesh">himachal pradesh</option>
+                                              <option value="jharkhand">jharkhand</option>
+                                              <option value="karnataka">karnataka</option>
+                                              <option value="kerla">kerla</option>
+                                              <option value="madhya_pradesh">madhya pradesh</option>
+                                              <option value="maharastra">maharastra</option>
+                                              <option value="manipur">manipur</option>
+                                              <option value="meghalaya">meghalaya</option>
+                                              <option value="mizoram">mizoram</option>
+                                              <option value="nagaland">nagaland</option>
+                                              <option value="orisa">orisa</option>
+                                              <option value="punjab">punjab</option>
+                                              <option value="rajesthan">rajesthan</option>
+                                              <option value="sikkim">sikkim</option>
+                                              <option value="tamil_nadu">tamil nadu</option>
+                                              <option value="telangana">telangana</option>
+                                              <option value="tripura">tripura</option>
+                                              <option value="uttrakhand">uttrakhand</option>
+                                              <option value="uttar_pradesh">uttar pradesh</option>
+                                              <option value="west_bengol">west bengol</option>
+                                            </select>
+                                          </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-25">
+                                            <label style="font-size:27px;" for="pin">Area Pin Code</label>
+                                          </div>
+                                          <div class="col-75">
+                                            <input id="form_view" type="number" id="pin" name="lastname" placeholder="your area pin code number..">
+                                          </div>
+                                        </div>
+        
+                                      </form>
+                                     </div>
+                                     </div>
+        <!--------------------------------------------------qualification_info-------------------------------------------- -->
+                                    <div id="qualification_info" class="tabcontent" style="background: url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);">
+        
+        <!--========================================10th bord details================================================  -->
+                                      <div class="10th_bord_details container"style="background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);margin-top:-48px;">
+                                        <h1><u>10th bord details</u></h1>
+                                        <table style="width:100%;font-size:27px;text-align:left;;">
+                                              <tr>
+                                                <th>Select subject from list</th>
+                                                <th>Subject(optional)</th>
+                                                <th>Total marks</th>
+                                                <th>Obtained marks</th>
+        
+                                              </tr>
+        
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label for="subject1">subject1</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view"  type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label for="subject2">subject2</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label for="subject3">subject3</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label  for="subject4">subject4</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label for="subject5">subject5</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                              <tr>
+                                                <td>
+                                                  <div class="row">
+                                                    <!-- <div class="col-25">
+                                                      <label for="subject6">subject6</label>
+                                                    </div> -->
+                                                  <div style="width:40%;"class="col-75">
+                                                  <select id="form_view" name="country">
+                                                    <option value="hindi">hindi</option>
+                                                    <option value="english">english</option>
+                                                    <option value="maths">maths</option>
+                                                    <option value="history">history</option>
+                                                    <option value="geography">geography</option>
+                                                    <option value="chemistry">chemistry</option>
+                                                    <option value="biology">biology</option>
+                                                    <option value="sanskrit">sanskrit</option>
+                                                    <option value="physics">physics</option>
+                                                    <option value="others">others</option>
+                                                  </select>
+                                                </div></td>
+                                                <td>
+                                                  <div class="col-75">
+                                                    <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                  </div>
+                                                </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                      </div>
+                                                    </td>
+                                                    <td>
+                                                      <div class="col-75">
+                                                        <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                      </div>
+                                                    </td>
+        
+                                              </tr>
+                                            </table>
+                                      </div>
+        
+        <!---================================================12th bord details===================================================== -->
+                                      <div class="12th_bord_details container "style="background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);">
+                                                    <h1><u>12th bord details</u></h1>
+                                                    <table style="width:100%;font-size:27px;text-align:left;;">
+                                                          <tr>
+                                                            <th>Select Subject from list</th>
+                                                            <th>Subject(optional)</th>
+                                                            <th>Total marks</th>
+                                                            <th>Obtained marks</th>
+        
+                                                          </tr>
+        
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject1">subject1</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject2">subject2</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject3">subject3</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject4">subject4</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject5">subject5</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                          <tr>
+                                                            <td>
+                                                              <div class="row">
+                                                                <!-- <div class="col-25">
+                                                                  <label for="subject6">subject6</label>
+                                                                </div> -->
+                                                              <div style="width:40%;"class="col-75">
+                                                              <select id="form_view" name="country">
+                                                                <option value="hindi">hindi</option>
+                                                                <option value="english">english</option>
+                                                                <option value="maths">maths</option>
+                                                                <option value="history">history</option>
+                                                                <option value="geography">geography</option>
+                                                                <option value="chemistry">chemistry</option>
+                                                                <option value="biology">biology</option>
+                                                                <option value="sanskrit">sanskrit</option>
+                                                                <option value="physics">physics</option>
+                                                                <option value="others">others</option>
+                                                              </select>
+                                                            </div></td>
+                                                            <td>
+                                                              <div class="col-75">
+                                                                <input id="form_view" type="text" name="" placeholder="Enter subject name">
+                                                              </div>
+                                                            </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter total marks">
+                                                                  </div>
+                                                                </td>
+                                                                <td>
+                                                                  <div class="col-75">
+                                                                    <input id="form_view" type="number" name="" placeholder="Enter obtained marks">
+                                                                  </div>
+                                                                </td>
+        
+                                                          </tr>
+                                                        </table>
+                                                  </div>
+                                           </div>
+        
+                                        </div>
+        
+        <!---------------------------------------------------document_upload-------------------------------------------------- -->
+                      <div id="document_upload" class="tabcontent container jumbotron" style="background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);height:2800px;">
+                        <h1><u>Student Document Upload</u></h1>
+                                  <div class="my_document_upload">
+                                    <table style="width:100%;">
+                                      <tr style="font-size:27px;position:left;">
+                                        <td><b>Image Description</b></td>
+                                        <td><b>Image Details</b></td>
+                                        <td><b>Image Preview</b></td>
+                                        <td><b>Verification Status</b></td>
+                                      </tr>
+                                      <tr>
+                                        <td>Pasport Size Photo<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg1(this);" /></td>
+                                          <td><img id="blah1" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Adhar Card<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg2(this);" /></td>
+                                          <td><img id="blah2" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>10th Result<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg3(this);" /></td>
+                                          <td><img id="blah3" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>10th Admit Card<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg4(this);" /></td>
+                                          <td><img id="blah4" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>10th Transfer Certificate<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg5(this);" /></td>
+                                          <td><img id="blah5" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>12th Result<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg6(this);" /></td>
+                                          <td><img id="blah6" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>12th Admit Card<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg7(this);" /></td>
+                                          <td><img id="blah7" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>12th Transfer certificate<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg8(this);" /></td>
+                                          <td><img id="blah8" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Cast Certificate<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg9(this);" /></td>
+                                          <td><img id="blah9" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Income Certificate<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg10(this);" /></td>
+                                          <td><img id="blah10" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Leaving Certificate<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg11(this);" /></td>
+                                          <td><img id="blah11" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Other Skill Certificate(1)<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg12(this);" /></td>
+                                          <td><img id="blah12" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Other Certificate(2)<br>(the image size must not be more than 100kb)</td>
+                                        <td><input type='file' onchange="readimg13(this);" /></td>
+                                          <td><img id="blah13" src="#" alt="your image" /></td>
+                                          <td>Pending....</td>
+                                      </tr>
+        
+        
+                                    </table>
+                                    <!-- <input type='file' onchange="readURL(this);" />
+                                      <img id="blah" src="#" alt="your image" /> -->
+        
+                                  </div>
+                      </div>
+        
+        <!-- ---------------------------------------------------payment------------------------------------------------------ -->
+                      <div id="payment" class="tabcontent" >
+                          <div class="pay_college_fees container jumbotron" style="margin-top:-100px; background:url(https://www.xmple.com/wallpaper/blue-solid-color-single-plain-one-colour-2560x1440-c-030750-f-24.svg);">
+        
+                            <p style="font-size:35px;position:center;margin-left:380px;"><u>Students Payment Portal</u></p>
+                            <div class="col-25">
+                              <div class="container" style="background-color:rgba(0, 217, 255,1); height:805px;">
+                                <h4 style="color:blue; font-size:32px;"><u>Fee Strcture</u>
+                                  <span class="price" style="color:blue;float:left; font-size:20px;">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                    <b>Description</b>
+                                    <b>Value</b>
+                                  </span>
+                                </h4>
+                                <p><a href="#">Tution fee</a> <span class="price" style="color:#fff;">Rs 45000</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Lab fee</a> <span class="price" style="color:#fff;">Rs 12500</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Eligibility fee</a><span class="price" style="color:#fff;">Rs 000</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Registration fee</a><span class="price" style="color:#fff;">Rs 000</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Exam fee</a> <span class="price" style="color:#fff;">Rs 6540</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Miscellaneious fee</a><span class="price" style="color:#fff;">Rs 000</span></p>
+                                <p></p>
+                                <p></p>
+                                <p><a href="#">Maintanance fee</a> <span class="price" style="color:#fff;">Rs 5960</span></p>
+                                <p></p>
+                                <p></p>
+                                <hr>
+                                <p><a href="#" >Total </a> <span class="price" style="color:#fff;"><b>Rs 70000</b></span></p>
+                                <p></p>
+                                <p style="color:blue;"><u>IN WORDS:</u>Rupees Seventy Thousand only.</p>
+                                <p></p>
+                                <p style="color:#fff;"><U>PLEASE NOTE:</U>the fee structure may varies after every <br> samester this may occurs due to change in <br> lab fees and Maintanance charges</p>
+        
+                              </div>
+                            </div>
+                            <div class="row">
+                            <div class="col-75">
+        
+                                <div class="container" style="background-color:rgba(0,217,255,1);">
+                                       <form action="/action_page.php">
+        
+        
+                             <div class="row">
+                               <div class="col-50">
+                                 <h3 style="color:blue; font-size:32px;"><u>Student Details</u></h3>
+                                 <label style="font-size:27px; color:blue;" for="fname"><i class="fa fa-user"></i> Full Name</label>
+                                 <input class="namehai" id="form_view_pay" type="text" id="fname" name="firstname" placeholder="expl:-nitish k v">
+                                 <label style="font-size:27px; color:blue;" for="email"><i class="fa fa-envelope"></i>Register Number</label>
+                                 <input class="namehai" id="form_view_pay" type="text" id="email" name="email" placeholder="R1818285">
+                                 <label style="font-size:27px; color:blue;" for="adr"><i class="fa fa-address-card-o"></i>Email</label>
+                                 <input class="namehai" id="form_view_pay" type="email" id="adr" name="address" placeholder="knverma@gmail.com">
+                                 <label style="font-size:27px; color:blue;" for="city"><i class="fa fa-institution"></i>Phone No.</label>
+                                 <input class="namehai" id="form_view_pay" type="number" id="city" name="city" placeholder="7004093320">
+                                 <div class="col-50">
+                                   <label style="font-size:27px; color:blue; margin-top:40px;" for="state">Total Ammount</label>
+                                   <input style="width:250px;" type="number" id="state" name="state" placeholder="70000">
+                                 </div>
+        
+                               </div>
+        
+                               <div class="col-50">
+                                 <h3 style="color:blue; font-size:32px;"><u>Payment</u></h3>
+        
+                                 <label style="font-size:27px; color:blue;" for="cname">Name on Card</label>
+                                 <input class="namehai" id="form_view_pay" type="text" id="cname" name="cardname" placeholder="John More Doe">
+                                 <label style="font-size:27px; color:blue;"  for="ccnum">Credit card number</label>
+                                 <input class="namehai" id="form_view_pay" type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+                                 <label style="font-size:27px; color:blue;" for="expmonth">Exp Month</label>
+                                 <input class="namehai" id="form_view_pay" type="text" id="expmonth" name="expmonth" placeholder="September">
+        
+                                 <div class="row">
+                                   <div class="col-50">
+                                     <label style="font-size:27px; color:blue;" for="expyear">Exp Year</label>
+                                     <input class="namehai" id="form_view_pay" type="text" id="expyear" name="expyear" placeholder="2018">
+                                   </div>
+                                   <div class="col-50">
+                                     <label style="font-size:27px; color:blue;" for="cvv">CVV</label>
+                                     <input class="namehai" id="form_view_pay" type="text" id="cvv" name="cvv" placeholder="352">
+                                   </div>
+                                   <div class="col-50">
+                                     <label style="font-size:27px; color:blue;" for="zip">Payable Amount</label>
+                                     <input style="width:250px;" type="number" id="zip" name="zip" placeholder="35000">
+                                   </div>
+                                 </div>
+                               </div>
+        
+                             </div>
+        
+                           </form>
+                         </div>
+                       </div>
+                        <input id="pay" style=" margin-left:-200px; margin-top:50px; width:940px;position:center;"type="submit" value="Submit Your Payment Request">
+        
+                       </div>
+                            </div>
+                        </div>
+                      </div>
+        <script>
+                      function openPage(pageName, elmnt, color) {
+                      // Hide all elements with class="tabcontent" by default */
+                      var i, tabcontent, tablinks;
+                      tabcontent = document.getElementsByClassName("tabcontent");
+                      for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                      }
+        
+                      // Remove the background color of all tablinks/buttons
+                      tablinks = document.getElementsByClassName("tablink");
+                      for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].style.backgroundColor = "";
+                      }
+        
+                      // Show the specific tab content
+                      document.getElementById(pageName).style.display = "block";
+        
+                      // Add the specific color to the button used to open the tab content
+                      elmnt.style.backgroundColor = color;
+                    }
+        
+                    // Get the element with id="defaultOpen" and click on it
+                        document.getElementById("defaultOpen").click();
+                  // ************************************document_upload*****************************
+                                        function readimg1(input) {
+        
+                                          if (input.files && input.files[0]) {
+                                              var reader = new FileReader();
+        
+                                              reader.onload = function (e) {
+                                                  $('#blah1')
+                                                      .attr('src', e.target.result)
+                                                      .width(150)
+                                                      .height(200);
+                                              };
+                                              reader.readAsDataURL(input.files[0]);
+                                          }
+                                      }
+        
+                                      function readimg2(input) {
+        
+                                        if (input.files && input.files[0]) {
+                                            var reader = new FileReader();
+        
+                                            reader.onload = function (e) {
+                                                $('#blah2')
+                                                    .attr('src', e.target.result)
+                                                    .width(150)
+                                                    .height(200);
+                                            };
+                                            reader.readAsDataURL(input.files[0]);
+                                        }
+                                    }
+        
+                                    function readimg3(input) {
+        
+                                      if (input.files && input.files[0]) {
+                                          var reader = new FileReader();
+        
+                                          reader.onload = function (e) {
+                                              $('#blah3')
+                                                  .attr('src', e.target.result)
+                                                  .width(150)
+                                                  .height(200);
+                                          };
+                                          reader.readAsDataURL(input.files[0]);
+                                      }
+                                  }
+        
+                                  function readimg4(input) {
+        
+                                    if (input.files && input.files[0]) {
+                                        var reader = new FileReader();
+        
+                                        reader.onload = function (e) {
+                                            $('#blah4')
+                                                .attr('src', e.target.result)
+                                                .width(150)
+                                                .height(200);
+                                        };
+                                        reader.readAsDataURL(input.files[0]);
+                                    }
+                                }
+        
+                                function readimg5(input) {
+        
+                                  if (input.files && input.files[0]) {
+                                      var reader = new FileReader();
+        
+                                      reader.onload = function (e) {
+                                          $('#blah5')
+                                              .attr('src', e.target.result)
+                                              .width(150)
+                                              .height(200);
+                                      };
+                                      reader.readAsDataURL(input.files[0]);
+                                  }
+                              }
+        
+                              function readimg6(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah6')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg7(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah7')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg8(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah8')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg9(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah9')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg10(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah10')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg11(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah11')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg12(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah12')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        
+                              function readimg13(input) {
+        
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+        
+                                    reader.onload = function (e) {
+                                        $('#blah13')
+                                            .attr('src', e.target.result)
+                                            .width(150)
+                                            .height(200);
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                              }
+        </script>
+        
+    </div>
+     
+  </body>
+</html>
+{% endblock %}

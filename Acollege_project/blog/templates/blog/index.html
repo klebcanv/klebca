@@ -1,0 +1,123 @@
+
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&family=Oi&family=Open+Sans&family=Roboto&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  </head> 
+  <body>
+    <!-- Search Form -->
+        <div style="margin-top: 70px;" class="top jumbotron">
+          <h1>Welcome to kle blog</h1>
+          <div class="container">
+            <form style="margin-top: 70px;margin-bottom:-250px;" class="form-inline ">
+              <input style="width: 1020px;" class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search" style="width: 400px">
+              <input class="btn btn-outline-success my-2 my-sm-0" type="submit" value="Search">
+            </form> 
+          </div>
+        </div>
+        <style>
+          h1{
+            text-align: center;
+            font-size: 5em;
+            font-family: 'New Rocker', cursive;
+          }
+            .jumbotron{
+                  background: url(https://p4.wallpaperbetter.com/wallpaper/114/760/992/abstract-hexagon-digital-art-pattern-wallpaper-preview.jpg);
+                  height: 400px;
+                  margin-bottom: -200px;
+                }
+        </style>
+    <div class="container">
+      
+          {% for post in posts %}
+              <article class="media content-section testimonial_bloga">
+                <img class="imgd rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+                <div class="media-body">
+                  <div class="bor" style="border-bottom: 3px solid red;">
+                    <div class="article-metadata">
+                      <a class="mr-2" href="{% url 'user_posts' post.author.username %}">{{ post.author }}</a>
+                      <small style="color: white;" class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                    </div>
+                  <h2><a id="title" class="article-title" href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+                  </div>
+                  <p class="article-content">{{ post.content|safe }}</p>
+                </div>
+              </article>
+              <style>
+                
+                body{
+              color:rgba(0,217,255,1);
+              background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+                }
+                .imgd{
+                  width: 50px;
+                  height: 75px;
+                }
+                .testimonial_bloga {
+                      background: #393a40;
+                      width: 100%;
+                      padding: 40px 50px;
+                      box-shadow: 50px 50px 0 0 #4fcaff;
+                      margin-top: 70px;
+                  }
+                  #title{
+                    color:white;
+                    margin-top: 50px;
+                  }
+                  #title:hover{
+                    color:aqua;
+                  }
+                  .testimonial_bloga p{
+                      color: #fff;
+                      color:rgba(0,217,255,1);
+                  }
+
+                  .testimonial_bloga p + p {
+                      margin: 0;
+                  }
+
+                  .testimonial_bloga p:first-child {
+                      font-size: 30px;
+                      font-weight: 500;
+                  }
+
+              </style>
+          {% endfor %}
+          <div style="margin-top: 55px;">
+            {% if is_paginated %}
+            {% if page_obj.has_previous %}
+              <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+              <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+              {% if page_obj.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+              {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+              <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+              <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+            {% endif %}
+          {% endif %}
+          </div>
+    </div>
+     
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,113 @@
+
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .container{
+            background-color: #393a40;
+            margin-top: 150px;
+            /* height: 500px; */
+        }
+
+          .chat{
+            margin-top: 60px;
+            border: 2px solid aqua;
+            padding:10px;
+            height: 300px;
+          }
+          .chat::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+
+          .chat img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+          }
+
+          .time-right {
+            float: right;
+            color: #aaa;
+          }
+
+          .time-left {
+            float: left;
+            color: #999;
+          }
+          .chat input[type=text], select {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              width: 100%;
+
+              background: transparent;
+              margin: 6px 0;
+              height: 38px;
+              border-radius: 5px;
+              box-sizing: border-box;
+              outline: none;
+              color: aqua;
+              }
+
+              .chat input[type=submit] {
+              width: 100%;
+              background-color: #4CAF50;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+              }
+
+              .chat input[type=submit]:hover {
+              background-color: #45a049;
+              }
+    </style>
+  </head> 
+  <body>
+    <div class="container">
+          <div align="center" style="border-bottom: 3px solid red;">
+              <h1>Welcome to kle Chat Room</h1>
+              
+              <h6 style="color: red;">Please note all the chats are recorded and can be viewed by admin please do not misuse </h6>
+          </div>
+          <div class="row">
+            <div style="padding: 20px; margin-bottom: 50px" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <img width="500px" height="300px" style="margin-top: 60px;" src="{% static 'PHOTOES\sub\chat.jpg' %}" alt="">
+            </div>
+            <div style="padding: 20px; margin-bottom: 50px" class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <div class="chat">
+                <h6 style="color: greenyellow;text-align: center;">here you can create or join any room </h6>
+                  <form id="post-form" method="POST" action="checkview">
+                      {% csrf_token %}
+                      <label>Room Name</label>
+                      <input type="text" name="room_name" id="room_name" width="100px" />
+                      <label>Username</label>
+                      <input type="text" name="username" id="username" value="{{user.username}}" readonly width="100px" />
+                      <input type="submit" value="Enter Room">
+                  </form>
+              </div>
+            </div>
+          </div>
+      </div>
+     
+  </body>
+</html>
+{% endblock %}

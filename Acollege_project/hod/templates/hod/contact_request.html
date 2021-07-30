@@ -1,0 +1,63 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .dd{
+            background-color: #393a40;
+            margin-top: 70px;
+        }
+    </style>
+  </head> 
+  <body>
+    <div class="dd row">
+      <div class="col-sm">
+        <h4 class="text-center alert alert-info">Contact requests</h4>
+        {% if stu %}
+         <table class="table table-hover">
+           <thead>
+             <tr>
+               <th style="color:red;" scope="col">ID</th>
+               <th style="color:red;" scope="col">Name</th>
+               <th style="color:red;" scope="col">Email</th>
+               <th style="color:red;" scope="col">Subject</th>
+               <th style="color:red;" scope="col">text message</th>
+             </tr>
+           </thead>
+           <tbody>
+            {% for st in stu %}
+             <tr>
+              <tr>
+                <th style="color:rgba(0,217,255,1);" scope="row">{{st.id}}</th>
+                <td style="color:rgba(0,217,255,1);">{{st.yourname}}</td>
+                <td style="color:rgba(0,217,255,1);">{{st.youremail}}</td>
+                <td style="color:rgba(0,217,255,1);">{{st.subject}}</td>
+                <td style="color:rgba(0,217,255,1);">{{st.yourmessage}}</td>
+              </tr>
+             </tr>
+            {% endfor %}
+           </tbody>
+         </table>
+      
+        {% else %}
+         <h4 class="text-center alert alert-warning">No Records</h4>
+        {% endif %}
+       </div>
+    </div>
+     
+  </body>
+</html>
+{% endblock %}
+

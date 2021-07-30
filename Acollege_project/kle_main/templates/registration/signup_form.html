@@ -1,0 +1,397 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:yellow;
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      label{
+        color:aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cont">
+      <div class="form sign-in">
+        <h2 style="color: aqua;">Please Note</h2>
+        <ul>
+          <li><p>This signup form must be only field by department head <br>
+          or the persion who had been authorized by the department head</p></li>
+          <li><p>please note mam as soon as you signup you will be loged in to that same account</p></li>
+          <li><p>you need to relogin yourself everytime you sign-up for any</p></li>
+          <li><p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident, harum voluptatibus voluptatum iure odio quos ipsum tempore libero corporis officiis excepturi aspernatur doloribus nesciunt adipisci quidem voluptate, unde ducimus nihil!</p></li>
+          <li><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In id quaerat nisi iure optio dolorem asperiores, minus quasi suscipit nam, ut consequatur? Neque aspernatur eveniet ex provident minus, nihil dolore.</p></li>
+        </ul>
+      </div>
+  
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img-text m-up">
+            <h2>New Signup?</h2>
+            <p>Click Below To Sign Up</p>
+          </div>
+          <div class="img-text m-in">
+            <h2>Notes?</h2>
+            <p>Click below to see the important notes for department head</p>
+          </div>
+          <div class="img-btn">
+            <span class="m-up">Sign Up</span>
+            <span class="m-in">NOTE</span>
+          </div>
+        </div>
+        <div class="form sign-up">
+          <h2 style="margin-top: 10px; color: aqua;"><u>Sign up as {{ user_type }}</u></h2>
+              <form method="post" novalidate>
+            
+                  {% csrf_token %}
+                  {% for fm in form %}
+                    {{fm.label_tag}} {{fm}} {{fm.errors|striptags}}
+                  {% endfor %}
+        
+                <button style="margin-left: 170px; margin-top: 40px;" type="submit" class="btn btn-warning">Sign up</button>
+              </form>
+        </div>
+      </div>
+    </div>
+    <style media="screen">
+    *, *:before, *:after{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    ul{
+      color:yellow;
+    }
+  
+    body{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: cover;
+      background:url(https://i.pinimg.com/originals/b1/32/cb/b132cb6e562fef08f3e9457f1b750f38.jpg);
+    }
+  
+    input, button{
+      border:none;
+      outline: none;
+      background: none;
+      color: aqua;
+    }
+  
+    .cont{
+      margin-top: 80px;
+      overflow: hidden;
+      position: relative;
+      width: 900px;
+      height: 550px;
+      background: url(https://wallup.net/wp-content/uploads/2016/01/164682-simple-colorful-abstract-gradient-lightning-Easter-sky-748x468.jpg);
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+  
+    .form{
+      position: relative;
+      width: 640px;
+      height: 100%;
+      padding: 50px 30px;
+      -webkit-transition:-webkit-transform 1.2s ease-in-out;
+      transition: -webkit-transform 1.2s ease-in-out;
+      transition: transform 1.2s ease-in-out;
+      transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+    }
+  
+    h2{
+      width: 100%;
+      font-size: 30px;
+      text-align: center;
+    }
+  
+    label{
+      display: block;
+      /* width: 260px; */
+      margin: 25px auto 0;
+      margin-top: 40px;
+    }
+  
+    label span{
+      font-size: 14px;
+      font-weight: 600;
+      color: #505f75;
+      text-transform: uppercase;
+    }
+  
+    input{
+      margin-left: 150px;
+      display: block;
+      width: 400px;
+      margin-top: -35px;
+      font-size: 16px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid yellow;
+      text-align: center;
+      font-family: 'Nunito', sans-serif;
+    }
+  
+    button{
+      display: block;
+      margin: 0 auto;
+      width: 260px;
+      height: 36px;
+      border-radius: 30px;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  
+    .submit{
+      margin-top: 40px;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      font-weight: 600;
+      font-family: 'Nunito', sans-serif;
+      background: -webkit-linear-gradient(left, #7579ff, #b224ef);
+    }
+  
+    .submit:hover{
+      background: -webkit-linear-gradient(left, #b224ef, #7579ff);
+    }
+  
+    .forgot-pass{
+      margin-top: 15px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #0c0101;
+      cursor: pointer;
+    }
+  
+    .forgot-pass:hover{
+      color: red;
+    }
+  
+    .social-media{
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    .social-media ul{
+      list-style: none;
+    }
+  
+    .social-media ul li{
+      display: inline-block;
+      cursor: pointer;
+      margin: 25px 15px;
+    }
+  
+    .social-media img{
+      width: 40px;
+      height: 40px;
+    }
+  
+    .sub-cont{
+      overflow: hidden;
+      position: absolute;
+      left: 640px;
+      top: 0;
+      width: 900px;
+      height: 100%;
+      padding-left: 260px;
+      background: url(https://i.redd.it/jqiaosn3aw651.jpg);
+      -webkit-transition: -webkit-transform 1.2s ease-in-out;
+      transition: -webkit-transform 1.2s ease-in-out;
+      transition: transform 1.2s ease-in-out;
+    }
+  
+    .cont.s-signup .sub-cont{
+      -webkit-transform:translate3d(-640px, 0, 0);
+              transform:translate3d(-640px, 0, 0);
+    }
+  
+    .img{
+      overflow: hidden;
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 260px;
+      height: 100%;
+      padding-top: 360px;
+    }
+  
+    .img:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 900px;
+      height: 100%;
+      background-image: url(https://images.shiksha.com/mediadata/images/1491201469phpOSLylz.jpeg);
+      background-size: cover;
+      transition: -webkit-transform 1.2s ease-in-out;
+      transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+    }
+  
+    .img:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+    }
+  
+    .cont.s-signup .img:before{
+      -webkit-transform:translate3d(640px, 0, 0);
+              transform:translate3d(640px, 0, 0);
+    }
+  
+    .img-text{
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 50px;
+      width: 100%;
+      padding: 0 20px;
+      text-align: center;
+      color: #fff;
+      -webkit-transition:-webkit-transform 1.2s ease-in-out;
+      transition: -webkit-transform 1.2s ease-in-out;
+      transition: transform 1.2s ease-in-out, -webkit-transform 1.2s ease-in-out;
+    }
+  
+    .img-text h2{
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+  
+    .img-text p{
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  
+    .cont.s-signup .img-text.m-up{
+      -webkit-transform:translateX(520px);
+              transform:translateX(520px);
+    }
+  
+    .img-text.m-in{
+      -webkit-transform:translateX(-520px);
+              transform:translateX(-520px);
+    }
+  
+    .cont.s-signup .img-text.m-in{
+      -webkit-transform:translateX(0);
+              transform:translateX(0);
+    }
+  
+  
+    .sign-in{
+      padding-top: 65px;
+      -webkit-transition-timing-function:ease-out;
+              transition-timing-function:ease-out;
+    }
+  
+    .cont.s-signup .sign-in{
+      -webkit-transition-timing-function:ease-in-out;
+              transition-timing-function:ease-in-out;
+      -webkit-transition-duration:1.2s;
+              transition-duration:1.2s;
+      -webkit-transform:translate3d(640px, 0, 0);
+              transform:translate3d(640px, 0, 0);
+    }
+  
+    .img-btn{
+      overflow: hidden;
+      z-index: 2;
+      position: relative;
+      width: 100px;
+      height: 36px;
+      margin: 0 auto;
+      background: transparent;
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 15px;
+      cursor: pointer;
+    }
+  
+    .img-btn:after{
+      content: '';
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #fff;
+      border-radius: 30px;
+    }
+  
+    .img-btn span{
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack:center;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      -webkit-transition:-webkit-transform 1.2s;
+      transition: -webkit-transform 1.2s;
+      transition: transform 1.2s;
+      transition: transform 1.2s, -webkit-transform 1.2s;;
+    }
+  
+    .img-btn span.m-in{
+      -webkit-transform:translateY(-72px);
+              transform:translateY(-72px);
+    }
+  
+    .cont.s-signup .img-btn span.m-in{
+      -webkit-transform:translateY(0);
+              transform:translateY(0);
+    }
+  
+    .cont.s-signup .img-btn span.m-up{
+      -webkit-transform:translateY(72px);
+              transform:translateY(72px);
+    }
+  
+    .sign-up{
+      -webkit-transform:translate3d(-900px, 0, 0);
+              transform:translate3d(-900px, 0, 0);
+    }
+  
+    .cont.s-signup .sign-up{
+      -webkit-transform:translate3d(0, 0, 0);
+              transform:translate3d(0, 0, 0);
+    }
+    </style>
+  <script>
+  document.querySelector('.img-btn').addEventListener('click', function()
+    {
+      document.querySelector('.cont').classList.toggle('s-signup')
+    }
+  );
+  </script>
+  </body>
+</html>
+{% endblock %}

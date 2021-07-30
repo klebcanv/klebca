@@ -1,0 +1,90 @@
+{% extends "attendance.html" %}
+{% block at_form %}
+
+{% if user.is_authenticated %}
+<style>
+  form p{
+        color: red;
+        text-align: center;
+        margin-top: -20px;
+    }
+  input,select{
+        width: 100%;
+        background: transparent;
+        margin: 6px 0;
+        height: 38px;
+        border-radius: 5px;
+        padding: 0 10px;
+        box-sizing: border-box;
+        outline: none;
+        /* text-align: center; */
+        color: aqua;
+  }
+  button{
+    align-items: center;
+    width: 100%;
+  }
+
+</style>
+<div>
+  <form method="POST" class="post-form" enctype="multipart/form-data">  
+    {% csrf_token %}
+    <p><label for="id_stu_user">Stu user:</label> <select name="stu_user" id="id_stu_user">
+
+  
+    <option value="{{name.id}}" selected>{{name}}</option>
+  
+  </select></p>
+  <p><label for="id_subject">Subject:</label> <input type="text" name="subject" maxlength="100" id="id_subject" ></p>
+  <p><label for="id_Teacher">Teacher:</label> <input type="text" name="Teacher" maxlength="100" id="id_Teacher" readonly value="{{user.username}}" ></p>
+  <p><label for="id_from_d">From d:</label> <input type="date" name="from_d" required id="id_from_d"></p>
+  <p><label for="id_to_d">To d:</label> <input type="date" name="to_d" required id="id_to_d"></p>
+  <p><label for="id_total_c">Total c:</label> <input type="number" name="total_c" required id="id_total_c"></p>
+  <p><label for="id_attended_c">Attended c:</label> <input type="number" name="attended_c" required id="id_attended_c"></p>
+  <p><label for="id_remark">Remark:</label> <input type="text" name="remark" maxlength="500" required id="id_remark"></p>
+  <p><label for="id_posted_d">Posted d:</label> <input type="text" id="date" name="posted_d" maxlength="100" required id="id_posted_d" readonly value="javascript:document.write(Date()+'.')"/></p>  
+    <button type="submit" onclick="popup()" class="save btn btn-success">Save</button>  
+  </form> 
+</div>
+
+<script type="text/javascript">
+    function popup()
+          {
+          alert("Student's attendace updated successfully!");
+          timer: 8000;
+          }
+    document.getElementById('date').value = Date();
+  </script>
+
+{% endif %}
+{% endblock %}
+
+
+<form method="POST">
+  {% csrf_token %}
+  <label for="stu_user">Student Name</label>
+  <input type="text" name="stu_user" readonly value="{{name}}"><br>
+  <label for="subject">Subject</label>
+  <input type="text" name="subject" placeholder="enter the subject"><br>
+  <label for="Teacher">Teacher</label>
+  <input type="text" name="Teacher" readonly value="{{user.username}}"><br>
+  <label for="from_d">Date From</label>
+  <input type="date" name="from_d" placeholder="enter the date from"><br>
+  <label for="to_d">Date To</label>
+  <input type="date" name="to_d" placeholder="enter the date to"><br>
+  <label for="total_c">Total Class Taken</label>
+  <input type="number" name="total_c" placeholder="Enter the total classes"><br>
+  <label for="attended_c">Attended Class</label>
+  <input type="number" name="attended_c" placeholder="Enter the attended classes"><br>
+  <label for="remark">Remark (if any)</label>
+  <input type="text" name="remark" placeholder="enter any remark"><br>
+  <label for="posted_d">Posted on</label>
+  <input id="date" type="text" name="posted_d" readonly value="javascript:document.write(Date()+'.')"/><br>
+  <button type="submit" class="btn btn-success">save</button>
+</form>
+
+<form method="POST" class="post-form" enctype="multipart/form-data">  
+  {% csrf_token %}  
+  {{ a_form.as_p }}  
+  <button type="submit" class="save btn btn-default">Save</button>  
+</form> 

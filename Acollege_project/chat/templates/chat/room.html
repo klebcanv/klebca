@@ -1,0 +1,185 @@
+
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+        margin-top: 100px;
+      }
+      #display{
+        margin:4px, 4px;
+                padding:4px;
+                background-color: #393a40;
+                width: 100%;
+                height:500px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                text-align:justify;
+      }
+      
+      .container{
+            background-color: #393a40;
+            margin-top: 20px;
+        }
+
+          .darker {
+            position: static;
+            width:95%;
+            /* height: 55px; */
+            border: 1px solid green;
+            box-sizing: border-box;
+            background-color:rgba(13, 223, 238, 0.3);
+            border:3px solid rgb(13, 223, 238);
+          }
+
+          .darker:hover{
+            width: 100%;
+            transition: all 0.7s ease;
+          }
+          .container::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+
+          .container img {
+            float: left;
+            width: 100%;
+            margin-right: 20px;
+          }
+
+          .container img.right {
+            float: right;
+            margin-left: 20px;
+            margin-right:0;
+          }
+
+          .time-right {
+            float: right;
+            color: #fff;
+            /* margin-top: -40px; */
+          }
+
+          .time-left {
+            float: left;
+            color: #999;
+          }
+
+
+          /* post form */
+          input[type=text], select {
+            width: 89%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            }
+
+            input[type=submit] {
+            width: 10%;
+            background-color: rgba(0,217,255,1);
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            }
+
+            input[type=submit]:hover {
+            background-color: aqua;
+            }
+    </style>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+  </head> 
+  <body>
+    <div class="container">
+      <h2>Chat Room :{{room}}</h2>
+      <div id="display">
+             <!-- <div class="container darker">
+            <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
+            <span class="time-left">20th, April 2021</span>
+          </div> -->
+          <!--  <div><img id="img" style="margin-top:5px;width: 50px; height: 75px;" class="rounded-circle account-img" src="{{ user.profile.image.url }}" alt="profile_img"></div> -->
+
+      </div>
+      <script> 
+        // for display
+      $(document).ready(function(){
+
+      setInterval(function(){
+          $.ajax({
+              type: 'GET',
+              url : "/chat/getMessages/{{room}}/",
+              success: function(response){
+                  console.log(response);
+                  $("#display").empty();
+                  for (var key in response.messages)
+                  {
+                      var temp="<div class='container darker'><b>"+response.messages[key].user+"</b><p>"+response.messages[key].value+"</p><span class='time-right timedd'>"+response.messages[key].date+"</span></div>";
+                      $("#display").append(temp);
+                  }
+                  $('#display').stop ().animate ({
+                      scrollTop: $('#display')[0].scrollHeight
+                    });
+              },
+              error: function(response){
+                  alert('An error occured')
+              }
+          });
+      },1000);
+      })
+    
+
+
+
+      </script>
+      <div class="cont" style="border-top:3px solid red;margin-top: 10px;">
+          <form id="post-form">
+              {% csrf_token %}
+              <input type="hidden" name="username" id="username" value="{{user.username}}"/>
+              <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
+              <input type="text" name="message" id="message" width="100px" />
+              <input type="submit" value="Send">
+          </form>
+      </div>
+    </div>
+     
+  </body>
+  <script type="text/javascript">
+    $(document).on('submit','#post-form',function(e){
+      e.preventDefault();
+  
+      $.ajax({
+        type:'POST',
+        url:'/chat/send',
+        data:{
+            username:$('#username').val(),
+            room_id:$('#room_id').val(),
+            message:$('#message').val(),
+          csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+        },
+        success: function(data){
+           //alert(data)
+        }
+      });
+      document.getElementById('message').value = ''
+    });
+  </script>
+</html>
+{% endblock %}

@@ -1,0 +1,285 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+
+                              body, html {
+                              height: 100%;
+                              margin: 0;
+                              font-family: Arial;
+                              background: url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+                              }
+        
+                              /* Style tab links */
+                              .tablink {
+                              background-color: #393a40;
+                              color: white;
+                              float: left;
+                              border: none;
+                              outline: none;
+                              cursor: pointer;
+                              padding: 14px 16px;
+                              font-size: 17px;
+                              width: 33.3%;
+                              }
+        
+                              .tablink:hover {
+                              color:rgba(0,217,255);
+                              }
+        
+                              /* Style the tab content (and add height:100% for full page content) */
+                              .tabcontent {
+                              /* color: black;0 */
+                              color:rgba(0,217,255);
+                              display: none;
+                              padding: 100px 20px;
+                              height: 100%;
+                              }
+        
+                              #personal_info {background-color: #393a40;}
+                              #qualification_info {background-color: #393a40;}
+                              #document_upload {background-color: #393a40;}
+                             
+    </style>
+  </head> 
+  <body>
+    <div class="containera">
+      <h4 class="text-center alert alert-info" style="margin-top:70px; margin-bottom: -0px;">College Feedback</h4>
+            <div class="register">
+                      <button class="tablink" onclick="openPage('personal_info', this, 'rgba(0,217,255);')"id="defaultOpen">Student Feedback</button>
+                      <button class="tablink" onclick="openPage('qualification_info', this, 'rgba(0,217,255);')" >Parents Feedback</button>
+                      <button class="tablink" onclick="openPage('document_upload', this, 'rgba(0,217,255);')">Employee Feedback</button>
+        <!--------------------------------------------student feedback------------------------------------ -->
+                      <div id="personal_info" class="tabcontent">
+                        <h1 style="color:aqua;">Student Feedback</h1>
+                        {% if stu %}
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th style="color:red;" scope="col">ID</th>
+                              <th style="color:red;">Username</th>
+                              <th style="color: red;">Email</th>
+                              <th style="color:red;" scope="col">Punctuality</th>
+                              <th style="color:red;" scope="col">Topic coverage</th>
+                              <th style="color:red;" scope="col">Communication</th>
+                              <th style="color:red;" scope="col">Method of teaching</th>
+                              <th style="color:red;" scope="col">Approachability</th>
+                              <th style="color:red;" scope="col">Co-curricular</th>
+                              <th style="color:red;" scope="col">Other suggestions</th>
+                              <!-- <th style="color:red;" scope="col">avg</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                           {% for st in stu %}
+                            <tr>
+                              <style>
+                                .dd{
+                                  background-color: red;
+                                }
+                                .gg{
+                                  background-color: green;
+                                }
+                                .ee{
+                                  background-color: none;
+                                }
+                              </style>
+
+                             <tr class="{% if st.fd1 >= '90' and st.fd2 >= '90' and st.fd3 >= '90' and st.fd4 >= '90' and st.fd5 >= '90' and st.fd6 >= '90' %}
+                                          gg
+                                        {% elif st.fd1 < '40' or st.fd2 < '40' or st.fd3 < '40' or st.fd4 < '40' or st.fd5 < '40' or st.fd6 < '40' %}                             
+                                          dd
+                                        {% else %}
+                                          ee
+                                        {% endif %}">
+                               <th style="color:rgba(0,217,255,1);" scope="row">{{st.id}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{st.username}}</th>
+                               <th style="color: rgba(0,217,255,1);">{{st.email}}</th>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd1}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd2}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd3}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd4}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd5}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd6}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{st.fd7}}</td>
+                               <!-- <td style="color:rgba(0,217,255,1);">{{st.avg}}</td> -->
+                             </tr>
+                            </tr>
+                           {% endfor %}
+                          </tbody>
+                        </table>
+                        {% else %}
+                        <h4 class="text-center alert alert-warning">No Records</h4>
+                        {% endif %}
+                       </div>
+        <!-------------------------------------------------parentss feedback-------------------------------------------- -->
+                      <div id="qualification_info" class="tabcontent" >
+                        <h1 style="color:aqua;">Parents Feedback</h1>
+                        {% if para %}
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th style="color:red;" scope="col">ID</th>
+                              <th style="color:red;">Stu Name</th>
+                              <th style="color: red;">Relation </th>
+                              <th style="color:red;" scope="col">Pr Name</th>
+                              <th style="color:red;" scope="col">Phone no.</th>
+                              <th style="color:red;" scope="col">Parrent Email</th>
+                              <th style="color:red;" scope="col">Infrastructure</th>
+                              <th style="color:red;" scope="col">Lab Facilities</th>
+                              <th style="color:red;" scope="col">Cleanliness</th>
+                              <th style="color:red;" scope="col">Ward Performance</th>
+                              <th style="color:red;" scope="col">Behaviour</th>
+                              <th style="color:red;" scope="col">Decipline</th>
+                              <th style="color:red;" scope="col">Other suggestions</th>
+                              <!-- <th style="color:red;" scope="col">avg</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                           {% for pr in para %}
+                            <tr>
+                              <style>
+                                .dd{
+                                  background-color: red;
+                                }
+                                .gg{
+                                  background-color: green;
+                                }
+                                .ee{
+                                  background-color: none;
+                                }
+                              </style>
+
+                             <tr class="{% if pr.par1 >= '90' and pr.par2 >= '90' and pr.par3 >= '90' and pr.par4 >= '90' and pr.par5 >= '90' and pr.par6 >= '90' %}
+                                          gg
+                                        {% elif pr.par1 < '40' or pr.par2 < '40' or pr.par3 < '40' or pr.par4 < '40' or pr.par5 < '40' or pr.par6 < '40' %}                             
+                                          dd
+                                        {% else %}
+                                          ee
+                                        {% endif %}">
+                               <th style="color:rgba(0,217,255,1);" scope="row">{{pr.id}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{pr.stu_name}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{pr.par_relation}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{pr.par_name}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{pr.par_ph_no}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{pr.par_email}}</th>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par1}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par2}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par3}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par4}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par5}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par6}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{pr.par7}}</td>
+                               <!-- <td style="color:rgba(0,217,255,1);">{{st.avg}}</td> -->
+                             </tr>
+                            </tr>
+                           {% endfor %}
+                          </tbody>
+                        </table>
+                        {% else %}
+                        <h4 class="text-center alert alert-warning">No Records</h4>
+                        {% endif %}
+                      </div>
+        
+        <!---------------------------------------------------employe feedback-------------------------------------------------- -->
+                      <div id="document_upload" class="tabcontent">
+                        <h1 style="color:aqua;">Employee Feedback</h1>
+                        {% if stf %}
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th style="color:red;" scope="col">ID</th>
+                              <th style="color:red;">Name</th>
+                              <th style="color: red;">Email</th>
+                              <th style="color:red;" scope="col">Time Table given</th>
+                              <th style="color:red;" scope="col">Staff Behaviour</th>
+                              <th style="color:red;" scope="col">Equioments provided</th>
+                              <th style="color:red;" scope="col">Lab functionality</th>
+                              <th style="color:red;" scope="col">Student Behaviour</th>
+                              <th style="color:red;" scope="col">Class arrangement</th>
+                              <th style="color:red;" scope="col">Other suggestions</th>
+                              <!-- <th style="color:red;" scope="col">avg</th> -->
+                            </tr>
+                          </thead>
+                          <tbody>
+                           {% for sf in stf %}
+                            <tr>
+                              <style>
+                                .dd{
+                                  background-color: red;
+                                }
+                                .gg{
+                                  background-color: green;
+                                }
+                                .ee{
+                                  background-color: none;
+                                }
+                              </style>
+
+                             <tr class="{% if sf.stf1 >= '90' and sf.stf2 >= '90' and sf.stf3 >= '90' and sf.stf4 >= '90' and sf.stf5 >= '90' and sf.stf6 >= '90' %}
+                                          gg
+                                        {% elif sf.stf1 < '40' or sf.stf2 < '40' or sf.stf3 < '40' or sf.stf4 < '40' or sf.stf5 < '40' or sf.stf6 < '40' %}                             
+                                          dd
+                                        {% else %}
+                                          ee
+                                        {% endif %}">
+                               <th style="color:rgba(0,217,255,1);" scope="row">{{sf.id}}</th>
+                               <th style="color:rgba(0,217,255,1);">{{sf.username}}</th>
+                               <th style="color: rgba(0,217,255,1);">{{sf.email}}</th>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf1}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf2}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf3}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf4}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf5}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf6}}</td>
+                               <td style="color:rgba(0,217,255,1);">{{sf.stf7}}</td>
+                               <!-- <td style="color:rgba(0,217,255,1);">{{st.avg}}</td> -->
+                             </tr>
+                            </tr>
+                           {% endfor %}
+                          </tbody>
+                        </table>
+                        {% else %}
+                        <h4 class="text-center alert alert-warning">No Records</h4>
+                        {% endif %}
+                      </div>
+        <script>
+                      function openPage(pageName, elmnt, color) {
+                      // Hide all elements with class="tabcontent" by default */
+                      var i, tabcontent, tablinks;
+                      tabcontent = document.getElementsByClassName("tabcontent");
+                      for (i = 0; i < tabcontent.length; i++) {
+                        tabcontent[i].style.display = "none";
+                      }
+        
+                      // Remove the background color of all tablinks/buttons
+                      tablinks = document.getElementsByClassName("tablink");
+                      for (i = 0; i < tablinks.length; i++) {
+                        tablinks[i].style.backgroundColor = "";
+                      }
+        
+                      // Show the specific tab content
+                      document.getElementById(pageName).style.display = "block";
+        
+                      // Add the specific color to the button used to open the tab content
+                      elmnt.style.backgroundColor = color;
+                    }
+        
+                    // Get the element with id="defaultOpen" and click on it
+                        document.getElementById("defaultOpen").click();
+                 
+        </script>
+        
+    </div>
+     
+  </body>
+</html>
+{% endblock %}

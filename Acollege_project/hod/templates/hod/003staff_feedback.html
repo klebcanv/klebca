@@ -1,0 +1,105 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .container{
+            background-color: #393a40;
+            margin-top: 70px;
+        }
+        label{
+          width: 34%;
+          margin-top: 20px;
+        }
+        input{
+            width: 65%;
+            margin-top: 20px;
+            background: transparent;
+            border-bottom: 3px solid aqua;
+            border-radius: 5px;
+            color:white;
+            outline: none;
+        }
+        input::placeholder{
+          color: white;
+        }
+
+        button{
+          width: 200px;
+          border: none;
+          height: 60px;
+          padding: 0 20px;
+          margin-top: 40px;
+          padding: 1rem 3rem;
+          font-size: 1.2rem;
+          background: #82fdff;
+          cursor: pointer;
+          transition: 0.5s;
+          margin-left: 45%;
+        }
+        button:hover{
+          background-color:rgba(0,224,240);
+          transform: scale(1.2);
+          -webkit-box-shadow: -1px 0px 25px 10px rgba(0, 217,255,1);
+          -moz-box-shadow: -1px 0px 25px 10px rgba(0, 217, 255,1);
+          box-shadow: -1px 0px 25px 10px rgba(0, 217, 255,1);
+        }
+    </style>
+  </head> 
+  <body>
+    <div class="container">
+      <h1>Staff Feedback</h1>
+      <form method="POST" class="post-form" action="#" onsubmit="popup();">
+        {% csrf_token %}
+        <label for="points">username</label>
+        <input type="text" id="point1" name="name" value="{{user.username}}" required>
+
+        <label for="points">email:</label>
+        <input type="text" id="point1" name="email" value="{{user.email}}" required>
+
+        <label for="points">Time Table alloted:</label>
+        <input type="range" id="point1" name="stf1" min="0" max="100">
+
+        <label for="points">Behaviour of other staff members:</label>
+        <input type="range" id="point2" name="stf2" min="0" max="100">
+
+        <label for="points">Equioments Provided:</label>
+        <input type="range" id="point3" name="stf3" min="0" max="100">
+
+        <label for="points">Lab functionality:</label>
+        <input type="range" id="point4" name="stf4" min="0" max="100">
+
+        <label for="points">Student Behaviour:</label>
+        <input type="range" id="point5" name="stf5" min="0" max="100">
+
+        <label for="points">Class arrangement:</label>
+        <input type="range" id="point5" name="stf6" min="0" max="100">
+
+        <label for="points">Suggestion (if any) :</label>
+        <input type="text"  name="stf7" placeholder="type your suggestions here">
+
+        <a href="http://127.0.0.1:8000/"><button type="submit" name="button">Submit</button></a>
+      </form>
+    </div>
+    <script>
+      function popup()
+            {
+            alert("your request has been recorded successfully!");
+            timer: 8000;
+            }
+    </script>
+  </body>
+</html>
+{% endblock %}

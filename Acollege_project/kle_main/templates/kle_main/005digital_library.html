@@ -1,0 +1,471 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <style media="screen">
+                            body{
+                              color:white;
+                              background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+                            }
+                            /* Style the tab */
+                        .tab {
+                          overflow: hidden;
+                          border: 3px groove #d208ff;
+                          background-color:rgba(0,217,255);
+
+
+                        }
+
+                        /* Style the buttons that are used to open the tab content */
+                        .tab button {
+                          background-color: inherit;
+                          float: left;
+                          border: none;
+                          outline: none;
+                          cursor: pointer;
+                          padding: 14px 16px;
+                          transition: 0.3s;
+                        }
+
+                        /* Change background color of buttons on hover */
+                        .tab button:hover {
+                          background-color: #d208ff;
+                          transform: scale(1.2);
+                        }
+
+                        /* Create an active/current tablink class */
+                        .tab button.active {
+                          background-color: #d208ff;
+                        }
+
+                        /* Style the tab content */
+                        .tabcontent {
+                          display: none;
+                          padding: 6px 12px;
+                          border: 3px solid #d208ff;
+                          border-top: none;
+                          color:rgba(0,217,255,1);
+                        }
+                        /* request */
+                        .imput_val input{
+                          padding: 0rem;
+                          margin: 0px 0px;
+                          border: none;
+                          border-bottom: 2px solid #00028a;
+                          font-size: 1.5rem;
+                          background: transparent;
+                          outline: none;
+                          color:navy;
+                        }
+                        .imput_val button{
+                          padding: 1rem 2rem;
+                          font-size: 1rem;
+                          background: #82fdff;
+                          color: navy;
+                          border: none;
+                          border-radius: 10px;
+                          cursor: pointer;
+                          transition: 0.5s;
+                          margin:20px;
+                        }
+                        .imput_val button:hover{
+                          background-color:rgba(0,224,240);
+                          transform: scale(1.2);
+                          -webkit-box-shadow: -1px 0px 25px 10px navy;
+                          -moz-box-shadow: -1px 0px 25px 10px navy;
+                          box-shadow: -1px 0px 25px 10px navy;
+                        }
+                        ::placeholder{
+                          font-size: 20px;
+                          color:navy;
+                        }
+                        .imput_val{
+                          /* margin-left: 900px; */
+                          height: 520px;
+                          width: 600px;
+                          text-align: center;
+                          transform: 0.5s;
+                          background: rgba(54, 205, 255,0.9);
+                          box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+
+                        }
+
+  </style>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div style="height:430px;background:url(https://dm0qx8t0i9gc9.cloudfront.net/thumbnails/video/itCjTBE/videoblocks-dark-blue-abstract-technology-circuit-board-motion-background-seamless-loop-video-animation-ultra-hd-4k-3840x2160_bvhyo1suq_thumbnail-1080_01.png)"class="jumbotron">
+      <h1 style="text-align: center;color:rgba(0,217,255,1); margin-top: 30px;"><u><b><i>Welcome to kle Digital library</i></b></u></h1>
+    </div>
+    <div style="margin-top:-300px;background-color:rgba(14, 15, 71,0.92);" class="jumbotron container">
+      <img style="height:400px;width:1140.5px;margin-left:-32.5px;margin-top:-65px;" src="{% static 'PHOTOES\cpic\lib2.jpg' %}" alt="">
+              <h1 style="color:rgba(0,217,255,1);; font-size:30px;text-align: center;">Kle Provide Student to Practice Old Question Paper. Student can also Request any Book in pdf form</h1>
+
+
+                <div class="tab">
+                  <button class="tablinks" onclick="openCity(event, 'sem1')">Semester(I)</button>
+                  <button class="tablinks" onclick="openCity(event, 'sem2')">Semester(II)</button>
+                  <button class="tablinks" onclick="openCity(event, 'sem3')">Semester(III)</button>
+                  <button class="tablinks" onclick="openCity(event, 'sem4')">Semester(IV)</button>
+                  <button class="tablinks" onclick="openCity(event, 'sem5')">Semester(V)</button>
+                  <button class="tablinks" onclick="openCity(event, 'sem6')">Semester(VI)</button>
+                </div>
+
+                <!-- Tab content -->
+                <div id="sem1" class="tabcontent">
+                  <h2>Question Papers Nov/Dec 2019</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Computer-Organizations_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Computer-Organizations</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Discrete-Mathematics_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Discrete-Mathematics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\English_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Hindi_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Kannada_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Problem-Solving-Techniques-Using-C_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Problem Solving Techniques Using C</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2019\Sanskrit_sem1_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+
+                  <h2>Question Papers Nov/Dec 2018</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Digital-Electronics-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Digital-Electronics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Discrete-Mathematics-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Discrete-Mathematics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\English-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Hindi-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Kannada-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Problem-Solving-Techniques-Using-C-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Problem-Solving-Techniques-Using-C</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2018\Sanskrit-min_sem1_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+
+                  <h2>Question Papers Nov/Dec 2017</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Digital-Electronics-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Digital Electronics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Discrete-Mathematics-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Discrete Mathematics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\English-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\EPH-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}"  alt="" />I Sem EPH</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Hindi-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Kannada-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Problem-Solving-Techniques-Using-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Problem Solving Techniques Using C</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Sanskrit-min_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Sanskrit</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2017\Environment-and-Public-Health_sem1_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Environment and Public Health(None core)</span></a></p>
+
+                  <h2>Question Papers Nov/Dec 2016</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\DigitalElectronics_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Digital Electronics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\DiscreteMahematics-sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Discrete Mathematics</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\English_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\Hindi_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\HindiRepeaters_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Hindi Repeaters</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\Kannada_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\ProblemSolvingTechniquesUsingC_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Problem Solving Techniques Using C</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2016\Sanskrit_sem1_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Sanskrit</span></a></p>
+
+                  <h2>Question Papers Nov/Dec 2015</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-english_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem English - I (2014-15 Onwards)</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-additional-english_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Additional English (2014-15 Onwards) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-hindi_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Hindi - I (2014-15 Onwards) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-sanskrit_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Sanskrit - I (2014-15 Onwards) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-tamil-part1_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Tamil (Paper-1) (Part-1) (2014-15 Onwards) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-problem-solving-techniques-using-c_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Problem Solving Techniques Using C (Y2K14 Scheme) (2014-15 Onwards)</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-kannada_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Kannada (2014-15 Onwards) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2015\1-sem-nov-2015-discrete-mathematics_sem1_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Discrete Mathematics  (Y2K14 Scheme) (2014-15 Onwards)</span></a></p>
+
+                  <h2>Question Papers (2014)</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2014\digi-electr_sem1_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Digital Electronics (CBCS Scheme)</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2014\dis-maths_sem1_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Discrete Mathematics (CBCS Scheme) </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2014\hindi_sem1_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Hindi </span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem1\2014\prog-concepts_sem1_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">I Sem Programming Concepts using C</span></a></p>
+                    </div>
+
+
+
+                <div id="sem2" class="tabcontent">
+                  <h2>Question Papers June 2019</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Database-Management-System_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  Database Management System</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Data-Structures_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  Data Structures</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\English_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Hindi_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Kannada_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Numerical-and-Statistical-Methods_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  Numerical and Statistical Methods</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2019\Sanskrit_sem2_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">  Sanskrit</span></a></p>
+
+
+                  <h2>Question Papers May 2018</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Data-Structures_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">/Data Structures</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Database-Management-System_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Database Management System</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Hindi_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Kannada_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Numerical-and-Statistical-Methods_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Numerical and Statistical Methods</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Sanskrit II_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+                  <h2>Non Core</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2018\Indian-Constitution-and-Human-Rights_sem2_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Indian Constitution and Human Rights</span></a></p>
+
+                      <h2>Question Papers May 2017</h2>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\AdditionalEnglish-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Additional English</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\DatabaseManagementSystem-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Database Management System</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\DataStructures-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Data Structures</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\English-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\HindiII-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi II (2014-15 onwards)</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\Hindi-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi II (2016-17 onwards)</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\Kannada-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\NumericalandStatisticalMethods-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Numerical and Statistical Methods</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\Sanskrit-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\Tamil-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Tamil</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2017\IndianConstitution&HumanRights-min_sem2_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Indian Constitution &amp; Human Rights</span></a></p>
+
+                      <h2>Question Papers 2016</h2>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\DatabaseManagementSystem-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Database Management System</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\DataStructures-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Data Structures</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\English-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\Hindi-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\Kannada-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\Malayalam-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Malayalam</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\NumericalandStatisticalMethods-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Numerical and Statistical Methods</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2016\Sanskrit-min_sem2_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+
+                      <h2>Question Papers 2015</h2>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\sanskrit-language_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Language Sanskrit Paper-II</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\numerical-and-statistical-methods_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Numerical &amp; Statistical Methods </span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\kannada-lang_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Language Kannada-II</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\english-lang_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Language English-II</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\database-management-systems_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Database Management System</span></a></p>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2015\data-structures_sem2_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Data Structures</span></a></p>
+
+                      <h2>Question Papers (2014)</h2>
+                      <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2014\comp-sc_sem2_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Object Oriented Programming Using C++ </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2014\dbms_sem2_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Database Management System </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2014\eng_sem2_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem English </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2014\kannada_sem2_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Kannada </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem2\2014\maths_sem2_2014.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">II Sem Mathematics</span></a></p>
+                            </div>
+
+
+
+                <div id="sem3" class="tabcontent">
+                  <h2>Question Papers Nov/Dec 2019</h2>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\English_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> English</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Financial-Accounting-and-Management_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Financial Accounting and Management</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Hindi_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Hindi</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Kannada_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Kannada</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Object-Oriented-Programming-Using-C++_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Object-Oriented-Programming-Using-C++</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Operating-System_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Operating-System</span></a></p>
+                  <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2019\Sanskrit_sem3_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Sanskrit</span></a></p>
+
+
+                        <h2>Question Papers Nov/Dec 2018</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\English-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> English</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Financial-Accounting-and-Management-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Financial-Accounting-and-Management</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Hindi-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Hindi</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Kannada-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Kannada</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Object-Oriented-Programming-Using-C++-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Object-Oriented-Programming-Using-C++</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Operating-System-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Operating-System</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Sanskrit-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Sanskrit</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2018\Tamil-min_sem3_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Tamil</span></a></p>
+
+                        <h2>Question Papers Nov/Dec 2017</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Culture-Diversity-and-Society-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Culture Diversity and Society</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\English-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem English</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Financial-Accounting-and-Management-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Financial Accounting and Management</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Hindi-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Hindi </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Kannada-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Kannada</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Object-Oriented-Programming-Using-C++-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Object Oriented Programming Using C++</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Operating-Systems-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Operating Systems</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2017\Sanskrit-min_sem3_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Sanskrit</span></a></p>
+
+                        <h2>Question Papers Nov/Dec 2016</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\AccountingandFinancialManagement-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Accounting and Financial Management</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\English-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem English</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\Hindi-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Hindi</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\HindiRepeaters-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Hindi Repeaters</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\Kannada-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Kannada</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\ObjectOrientedProgrammingUsingC-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Object Oriented Programming Using C++</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\OperatingSystems-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Operating Systems</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\Sanskrit-min_sem3_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Sanskrit</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2016\Tamil-min_sem_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Tamil</span></a></p>
+
+                      <h2>Question Papers Nov/Dec 2015</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-financial-accounting-management_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Financial Accounting and Management (Y2K14 Scheme) </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-english_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem English (Freshers) (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-additional-english_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Additional English  (Freshers) (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-hindi_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Hindi - III (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-operating-systems_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Operating Systems (Y2K14 Scheme)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-sanskrit-pIII_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Sanskrit (Freshers) (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-tamil-part1-pIII_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Tamil (Part-I) (Paper-III) (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-kannada-III_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Kannada -III (Freshers) (2015-16 Onwards)</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem3\2015\3-sem-nov-2015-oops-with-c++_sem3_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> III Sem Object Oriented Programming Using C++ (Y2K14 Scheme)</span></a></p>
+                           </div>
+
+
+                <div id="sem4" class="tabcontent">
+                          <h2>Question Papers May 2018</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\English_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Hindi_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Kannada_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Operations-Reacher_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Operations-Reacher</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Sanskrit_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Unix-Shell-Programming_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Unix Shell Programming</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Visual-Programming_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Visual Programming</span></a></p>
+                          <h2>Non Core</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2018\Personality-Development_sem4_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Personality Development</span></a></p>
+
+
+                        <h2>Question Papers May 2017</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\English_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\Hindi_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\Kannada_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\OperationResearch_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Operation Research</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\Sanskrit_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\UnixShellProgramming_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Unix Shell Programming</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2017\VisualProgramming_sem4_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Visual Programming</span></a></p>
+
+                        <h2>Question Papers May 2016</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\English-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">English</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\Hindi-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Hindi</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\Kannada-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Kannada</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\OperationsResearch-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Operations Research</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\Sanskrit-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Sanskrit</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\UnixShellProgramming-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Unix Shell Programming</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2016\VisualProgramming-min_sem4_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Visual Programming</span></a></p>
+
+                        <h2>Question Papers 2015</h2>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2015\visual-programming_sem4_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">IV Sem Visual Programming- Y2k8 Scheme</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2015\unix-programming_sem4_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">IV Sem Unix Programming- Y2k8 Scheme </span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2015\sanskrit-lang_sem4_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">IV Sem Language Sanskrit-IV</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2015\kannada-lang_sem4_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">IV Sem Language Kannada-IV</span></a></p>
+                        <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem4\2015\data-communications-and-networks_SEM4_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">IV Sem Data Communication and Networks -Y2K8 Scheme</span></a></p>
+                            </div>
+
+
+                <div id="sem5" class="tabcontent">
+                            <h2>Question Papers Nov/Dec 2019</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2019\Computer-Architecture_sem5_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Computer Architecture</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2019\Data-Communication-and-Networks_sem5_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Data-Communication and Networks</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2019\Java-Programming_sem5_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Java Programming</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2019\Microprocessor and assembly Language_sem5_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Microprocessor-and-Assembly-Language</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2019\Software Engineering_sem5_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Software-Engineering</span></a></p>
+
+
+                            <h2>Question Papers Nov/Dec 2018</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2018\Computer-Architecture-min_sem5_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Computer-Architecture</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2018\Data-COmmunication-and-Networks-min_sem5_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Data-COmmunication-and-Networks</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2018\Java-Programming-min_sem5_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Java-Programming</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2018\Microprocessor-and-Assembly-Language-min_sem5_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Microprocessor-and-Assembly-Language</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2018\Software-Engineering-min_sem5_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> Software-Engineering</span></a></p>
+
+                            <h2>Question Papers Nov/Dec 2017</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Computer-Architecture-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Computer Architecture</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Data-Communication-and-Networks-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Data Communication and Networks</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Java-Programming-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Java Programming</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Microprocessor-and-Assembly-Language-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Microprocessor and Assembly Language</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Software-Engineering-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Software Engineering</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2017\Banking-And-Insurance-min_sem5_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Banking And Insurance-(Non-Core)</span></a></p>
+
+                            <h2>Question Papers Nov/Dec 2016</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\ComputerArchitecture_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Computer Architecture</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\DataCommunicationandNetworks_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Data Communication and Networks</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\JavaProgramming_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Java Programming</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\MicroprocessorandAssemblyLanguage_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Microprocessor and Assembly Language</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\SoftwareEngineering_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Software Engineering</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2016\Banking&Finance-min_sem5_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Banking &amp; Finance</span></a></p>
+
+                          <h2>Question Papers Nov/Dec 2015</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2015\5-sem-nov-2015-banking-insurance_sem5_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Banking Insurance Y2K8 Scheme (2013-14 Onwards)</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2015\5-sem-nov-2015-java-programming_sem5_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Java Programming Y2K8 Scheme (2013-14 Onwards)</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2015\5-sem-nov-2015-software-engineering_sem5_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Software Engineering Y2K8 Scheme (2013-14 Onwards) </span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2015\5-sem-nov-2015-computer-architecture_sem5_2015.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt=""> V Sem Computer Architecture Y2K8 Scheme (2013-14 Onwards) </span></a></p>
+
+                          <h2>Question Papers 2012</h2>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Banking-And-Insurance-V_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">BCA-503: Banking and Insurance</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Computer-Architecture_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">BCA-501: Computer Architecture</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Java-Programming-V_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">BCA-504: Java Programming</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Java-Programming-Web-Page-Devel_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">5 BCA 1: Java Programming and Web Page Development</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Operations-Research-V_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">BCA-505: Operations Research</span></a></p>
+                            <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem5\2012\Software-Engineering_sem5_2012.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">BCA-501: Software Engineering</span></a></p>
+
+                              </div>
+
+
+                <div id="sem6" class="tabcontent">
+                          <h2>Question Papers June 2019</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2019\Cryptography-and-Network-Security_sem6_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Cryptography and Network Security</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2019\System-Programming_sem6_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">System Programming</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2019\Web-Programming_sem6_2019.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Web Programming</span></a></p>
+
+
+                          <h2>Question Papers May 2018</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2018\Cryptography-and-Network-Security_sem6_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Cryptography and Network Security</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2018\System-Programming_sem6_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">System Programming</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2018\Web-Programming_sem6_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Web Programming</span></a></p>
+                          <h2>Non Core</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2018\Computer-Applications-and-Information-Technology_sem6_2018.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Computer Applications and Information Technology</span></a></p>
+
+                          <h2>Question Papers May 2017</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2017\CryptographyandNetworkSecurity_sem6_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Cryptography and Network Security</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2017\SystemProgramming_sem6_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">System Programming</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2017\TheoryofComputation_sem6_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Theory of Computation</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2017\WebProgramming_sem6_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Web Programming</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2017\ComputerApplication&InformationTechnology-min_sem6_2017.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Computer Application &amp; Information Technology</span></a></p>
+
+                          <h2>Question Papers May 2016</h2>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2016\ComputerGraphics-min_sem6_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Computer Graphics</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2016\DesignandAnalysisofAlgorithms-min_sem6.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">Designed Analysis of Algorithms</span></a></p>
+                          <p><a target="_blank" href="{% static 'PHOTOES\cpic\qpapers\sem6\2016\SystemProgramming-min_sem6_2016.pdf' %}"><span><img src="{% static 'PHOTOES\cpic\pdf.png' %}" alt="">System Programming</span></a></p>
+                            </div>
+      </div>
+      <div style="margin-top:-50px;background:url(https://img5.goodfon.com/wallpaper/nbig/6/e2/4k-ultra-hd-background-art-spots-splashes-colorful-paint-tex.jpg);"class="request jumbotron ">
+        <div style=" align-items:center; color:rgba(0,217,255,1);"class=" imput_val wpb_text_column wpb_content_element ">
+          <div class="Enquiry">
+            <h3 style="font-size: 28pt;color:navy;"><u><strong>Request a book</u></strong></h3>
+          </div>
+          <form method="POST" class="post-form" action="#" onsubmit="popup();">
+            {% csrf_token %}
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="fullname" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter your name" required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-email"><input type="email" name="email" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"placeholder="Enter your Email " required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="subject" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter subject" required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="book_name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter your Book name" required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="book_author_name" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter your Book's author name" required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="book_edition" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter your Book'edition you want" required></span> </label></p>
+
+            <span class="wpcf7-form-control-wrap your-name"><input type="text" name="additional_info" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Enter your some additional information about book" required></span> </label></p>
+            <button type="submit" name="button">Submit</button>
+          </form>
+          <img style="margin-left:800px;margin-top:-740px;" src="{% static 'PHOTOES\cpic\pngguru1.png' %}" alt="">
+          </div>
+      </div>
+
+<script>
+          function popup()
+          {
+          alert("your request for book has been sent sucessfully!");
+          timer: 8000;
+          }
+          function openCity(evt, cityName) {
+            //   Declare all variables
+            var i, tabcontent, tablinks;
+
+            //  Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+            }
+
+            //  Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+          }
+</script>
+  </body>
+</html>
+{% endblock %}

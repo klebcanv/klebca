@@ -1,0 +1,204 @@
+{% extends "kle_main\001nav_base.html" %}
+{% block body_block %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <style>
+      body{
+        color:rgba(0,217,255,1);
+        background:url(https://media.giphy.com/media/xTiTnxpQ3ghPiB2Hp6/giphy.gif);
+      }
+      .containera{
+            background-color: #393a40;
+            margin-top: 70px;
+        }
+
+    /*--------------------------------------------------------------
+        # Team
+        --------------------------------------------------------------*/
+        .team {
+        padding: 60px 0;
+        }
+
+        .team .member {
+        margin-bottom: 20px;
+        overflow: hidden;
+        margin-top: -64px;
+        }
+
+        .team .member .member-img {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        }
+
+        .team .member .social {
+        position: absolute;
+        left: 0;
+        bottom: -40px;
+        right: 0;
+        height: 40px;
+        opacity: 0;
+        transition: bottom ease-in-out 0.4s;
+        background: rgba(124, 197, 118, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .team .member .social a {
+        transition: color 0.3s;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0 10px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+        .team .member .social a i {
+        line-height: 0;
+        }
+
+        .team .member .social a:hover {
+        color: #fff;
+        }
+
+        .team .member .social i {
+        font-size: 18px;
+        margin: 0 2px;
+        }
+
+        .team .member .member-info h4 {
+        font-weight: 700;
+        margin: 15px 0 5px 0;
+        font-size: 18px;
+        }
+
+        .team .member .member-info span {
+        display: block;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: 400;
+        margin-bottom: 15px;
+        color: #7cc576;
+        }
+
+        .team .member .member-info p {
+        font-style: italic;
+        font-size: 14px;
+        line-height: 26px;
+        color: #888888;
+        }
+
+        .team .member:hover .social {
+        bottom: 0;
+        opacity: 1;
+        transition: bottom ease-in-out 0.4s;
+        }
+
+    </style>
+  </head> 
+  <body>
+    <div class="containera">
+        <h4 class="text-center alert alert-info">Developer and Website </h4>
+        <h5 style="text-align:center;">This Website is not the official website of kle s.nijalingappa college bca department ,<br> It's just a project model created by developer mentioned bellow as their final year project</h5>
+        <div class="row">
+            <div  class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h3 style="background-color:greenyellow; color:indigo; text-align: center; height:50px;">Developer's Details</h3>
+                <p>This website is created by below mentioned Student of kle s.nijallingapa college (bca department) as out last year Project  </p>
+                <div class="row team" id="team">
+
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="zoom-in">
+                          <div class="member-img">
+                            <img src="{% static 'PHOTOES\nitishkv.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                              <a href=""><i class="bi bi-twitter"></i>twitter</a>
+                              <a href=""><i class="bi bi-facebook"></i>facebook</a>
+                              <a href=""><i class="bi bi-instagram"></i>instagram</a>
+                              <a href=""><i class="bi bi-linkedin"></i>linkedin</a>
+                            </div>
+                          </div>
+                          <div class="member-info">
+                            <h2>Nitish kumar verma</h2>
+                            <h6>Backend Developer(django)</h6>
+                            <span>Kle s.nijallingappa college , Bengaluru</span>
+                            <p>I am the backend developer of this website which is on django webframe work ,It took nearly 2 month to code all shorts of backend par of this website</p>
+                            <h2 style="background-color: yellow; color: tomato; text-align: center;">Personal Details</h2>
+                            <p>Roll:R1818285</p>
+                            <p>Year : 3rd year </p>
+                            <p>Semester : 6th semester</p>
+                            <p>Contact No.:7004093320</p>
+                            <p>address :college more,sihodih,giridih,jharkhand,815301</p>
+                            <span><a href="mailto:vnitishkumar32@gmail.com?subject=feedback">Click here to Email me</a></span>
+                          </div>
+                        </div>
+                      </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex align-items-stretch">
+                        <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="member-img">
+                            <img src="{% static 'PHOTOES\vaibhav.jpg' %}" class="img-fluid" alt="">
+                            <div class="social">
+                            <a href=""><i class="bi bi-twitter"></i>twitter</a>
+                            <a href=""><i class="bi bi-facebook"></i>facebook</a>
+                            <a href=""><i class="bi bi-instagram"></i>instagram</a>
+                            <a href=""><i class="bi bi-linkedin"></i>linkedin</a>
+                            </div>
+                        </div>
+                        <div class="member-info">
+                            <h2>Vaibhav kumar gupta</h2>
+                            <h6>front-end Developer(html)</h6>
+                            <span>Kle s.nijallingappa college , Bengaluru</span>
+                            <p>I am front-end developer of this website which is on html,css,bootstrap,js etc ,it took nearly 4 month to code all frontend paraat of this website</p>
+                            <h2 style="background-color: yellow; color: tomato; text-align: center;">Personal Details</h2>
+                            <p>Roll:R1818340</p>
+                            <p>Year : 3rd year </p>
+                            <p>Semester : 6th semester</p>
+                            <p>Contact No.:9471142889</p>
+                            <p>address :Chandarpura,bokaro,jaharkhand,22060</p>
+                            <span><a href="mailto:rohitvaibhavgupta@gmail.com?subject=feedback">Click here to Email me</a></span>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <h3 style="background-color:greenyellow; color:indigo; text-align: center; height:50px;">Website Details</h3>
+                <p>Website demo is clearly explained in this video with all the modules and with fake <br> detials, user can understand about the working of this website clearly</p>
+                <br>
+                <br>
+                <iframe width="100%" height="475px" style="margin-top: -50px; border-radius: 5px;"
+                src="https://www.youtube.com/embed/F4pBvML1Em4">
+                </iframe>
+                <br>
+                <br>
+                <p>The below file contains the whole documentation about this website in pdf form</p>
+                <a href="{% static 'PHOTOES\cpic\qpapers\sylabuss\BCA-syllabus.pdf' %}" target="_blank">
+                <img style="height: 400px; width: 100%;" class="pdf_img" src="{% static 'PHOTOES\down_pdf.png' %}" alt="img not found but you can click to view pdf"></a>
+                <style>
+                  .pdf_img:hover{
+                    transform: scale(1.05);
+                  }
+                </style>
+            </div>
+            <footer style="background-color: aqua; color: blue; text-align: center; width: 100%; height: 50px; padding-top: 15px;">
+                all copyright reserved 2020-2021 
+            </footer>
+        </div>
+    </div>
+     
+  </body>
+</html>
+{% endblock %}
